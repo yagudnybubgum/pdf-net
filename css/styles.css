@@ -241,14 +241,14 @@ ul {
   padding: 8px 18px;
   font-size: 14px;
   font-weight: 600;
-  color: #fff;
-  background: var(--color-accent);
+  color: var(--color-text);
+  background: #fff;
   border-radius: var(--radius-btn);
   transition: background var(--transition);
 }
 
 .header__cta:hover {
-  background: var(--color-accent-hover);
+  background: #f5f5f4;
 }
 
 .header__cta--full {
