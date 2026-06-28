@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pdf.net — Hero Concept 1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Young+Serif&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="/" class="header__logo" aria-label="pdf.net home">
+        <img src="assets/logo.svg" alt="pdf.net" width="120" height="32">
+      </a>
+
+      <nav class="header__nav" aria-label="Main navigation">
+        <ul class="header__links">
+          <li><a href="#">Edit text</a></li>
+          <li><a href="#">Merge</a></li>
+          <li><a href="#">Split</a></li>
+          <li><a href="#">Sign</a></li>
+          <li><a href="#">Annotate</a></li>
+          <li><a href="#">Rearrange pages</a></li>
+          <li class="header__dropdown">
+            <button type="button" class="header__dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+              Convert
+              <svg class="icon icon--sm" aria-hidden="true"><use href="#chevron-down"></use></svg>
+            </button>
+            <ul class="header__dropdown-menu" role="menu">
+              <li role="none"><a href="#" role="menuitem">PDF to Word</a></li>
+              <li role="none"><a href="#" role="menuitem">Word to PDF</a></li>
+              <li role="none"><a href="#" role="menuitem">PDF to JPG</a></li>
+              <li role="none"><a href="#" role="menuitem">JPG to PDF</a></li>
+            </ul>
+          </li>
+          <li class="header__dropdown">
+            <button type="button" class="header__dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+              AI Tools
+              <svg class="icon icon--sm" aria-hidden="true"><use href="#chevron-down"></use></svg>
+            </button>
+            <ul class="header__dropdown-menu" role="menu">
+              <li role="none"><a href="#" role="menuitem">AI Summarize</a></li>
+              <li role="none"><a href="#" role="menuitem">AI Translate</a></li>
+              <li role="none"><a href="#" role="menuitem">AI Chat with PDF</a></li>
+            </ul>
+          </li>
+          <li class="header__dropdown">
+            <button type="button" class="header__dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+              More tools
+              <svg class="icon icon--sm" aria-hidden="true"><use href="#chevron-down"></use></svg>
+            </button>
+            <ul class="header__dropdown-menu" role="menu">
+              <li role="none"><a href="#" role="menuitem">Compress</a></li>
+              <li role="none"><a href="#" role="menuitem">Protect</a></li>
+              <li role="none"><a href="#" role="menuitem">Unlock</a></li>
+              <li role="none"><a href="#" role="menuitem">OCR</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <div class="header__dropdown header__dropdown--lang">
+          <button type="button" class="header__lang-trigger" aria-expanded="false" aria-haspopup="true">
+            EN
+            <svg class="icon icon--sm" aria-hidden="true"><use href="#chevron-down"></use></svg>
+          </button>
+          <ul class="header__dropdown-menu" role="menu">
+            <li role="none"><a href="#" role="menuitem" aria-current="true">English</a></li>
+            <li role="none"><a href="#" role="menuitem">Español</a></li>
+            <li role="none"><a href="#" role="menuitem">Deutsch</a></li>
+            <li role="none"><a href="#" role="menuitem">Français</a></li>
+          </ul>
+        </div>
+        <a href="#" class="header__login">Login</a>
+        <a href="#" class="header__cta">Get started</a>
+      </div>
+
+      <div class="header__mobile-actions">
+        <div class="header__dropdown header__dropdown--lang">
+          <button type="button" class="header__lang-trigger" aria-expanded="false" aria-haspopup="true">
+            EN
+            <svg class="icon icon--sm" aria-hidden="true"><use href="#chevron-down"></use></svg>
+          </button>
+          <ul class="header__dropdown-menu" role="menu">
+            <li role="none"><a href="#" role="menuitem" aria-current="true">English</a></li>
+            <li role="none"><a href="#" role="menuitem">Español</a></li>
+            <li role="none"><a href="#" role="menuitem">Deutsch</a></li>
+            <li role="none"><a href="#" role="menuitem">Français</a></li>
+          </ul>
+        </div>
+        <button type="button" class="header__burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg class="icon icon--burger" aria-hidden="true"><use href="#bars-3"></use></svg>
+          <svg class="icon icon--close" aria-hidden="true"><use href="#x-mark"></use></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <nav aria-label="Mobile navigation">
+        <ul class="mobile-menu__links">
+          <li><a href="#">Edit text</a></li>
+          <li><a href="#">Merge</a></li>
+          <li><a href="#">Split</a></li>
+          <li><a href="#">Sign</a></li>
+          <li><a href="#">Annotate</a></li>
+          <li><a href="#">Rearrange pages</a></li>
+          <li class="mobile-menu__group">
+            <button type="button" class="mobile-menu__accordion" aria-expanded="false">
+              Convert
+              <svg class="icon icon--sm" aria-hidden="true"><use href="#chevron-down"></use></svg>
+            </button>
+            <ul class="mobile-menu__sub">
+              <li><a href="#">PDF to Word</a></li>
+              <li><a href="#">Word to PDF</a></li>
+              <li><a href="#">PDF to JPG</a></li>
+              <li><a href="#">JPG to PDF</a></li>
+            </ul>
+          </li>
+          <li class="mobile-menu__group">
+            <button type="button" class="mobile-menu__accordion" aria-expanded="false">
+              AI Tools
+              <svg class="icon icon--sm" aria-hidden="true"><use href="#chevron-down"></use></svg>
+            </button>
+            <ul class="mobile-menu__sub">
+              <li><a href="#">AI Summarize</a></li>
+              <li><a href="#">AI Translate</a></li>
+              <li><a href="#">AI Chat with PDF</a></li>
+            </ul>
+          </li>
+          <li class="mobile-menu__group">
+            <button type="button" class="mobile-menu__accordion" aria-expanded="false">
+              More tools
+              <svg class="icon icon--sm" aria-hidden="true"><use href="#chevron-down"></use></svg>
+            </button>
+            <ul class="mobile-menu__sub">
+              <li><a href="#">Compress</a></li>
+              <li><a href="#">Protect</a></li>
+              <li><a href="#">Unlock</a></li>
+              <li><a href="#">OCR</a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="mobile-menu__footer">
+          <a href="#" class="header__login">Login</a>
+          <a href="#" class="header__cta header__cta--full">Get started</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero__content">
+        <h1 class="hero__title">Professional All‑In‑One Online PDF Editor</h1>
+        <p class="hero__subtitle">
+          Effortlessly upload your PDF files to securely sign, edit, annotate, merge, and do much more with them using our online PDF editor.
+        </p>
+
+        <div class="hero-flow">
+          <input type="file" id="file-input" class="hero-flow__input" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" multiple hidden>
+
+          <div class="hero-flow__file hero-flow__file--pdf" data-flow-file aria-hidden="true">
+            <img src="assets/icons/pdf.svg" alt="">
+          </div>
+          <div class="hero-flow__file hero-flow__file--docx" data-flow-file aria-hidden="true">
+            <img src="assets/icons/docx.svg" alt="">
+          </div>
+          <div class="hero-flow__file hero-flow__file--jpeg" data-flow-file aria-hidden="true">
+            <img src="assets/icons/jpeg.svg" alt="">
+          </div>
+          <div class="hero-flow__file hero-flow__file--xlsx" data-flow-file aria-hidden="true">
+            <img src="assets/icons/xlsx.svg" alt="">
+          </div>
+
+          <div class="hero-flow__result" data-flow-result aria-hidden="true">
+            <img src="assets/icons/pdf.svg" alt="">
+            <span data-flow-result-label>final.pdf</span>
+            <svg class="icon icon--sm" aria-hidden="true"><use href="#check-circle"></use></svg>
+          </div>
+
+          <div class="hero-flow__editor" id="dropzone" data-flow-editor>
+            <div class="hero-flow__browser-bar">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="hero-flow__editor-body">
+              <div class="hero-flow__page-wrap" data-flow-page-wrap>
+                <svg class="hero-flow__page-ring" data-flow-page-ring aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="hero-magic-gradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="100" y2="100">
+                      <stop offset="0%" stop-color="#ff6b6b"/>
+                      <stop offset="18%" stop-color="#ffd93d"/>
+                      <stop offset="36%" stop-color="#6bcb77"/>
+                      <stop offset="54%" stop-color="#4d96ff"/>
+                      <stop offset="72%" stop-color="#a855f7"/>
+                      <stop offset="100%" stop-color="#ff6b6b"/>
+                    </linearGradient>
+                  </defs>
+                  <path
+                    data-flow-page-ring-path
+                    d="M 50 2 H 87 A 11 11 0 0 1 98 13 V 87 A 11 11 0 0 1 87 98 H 13 A 11 11 0 0 1 2 87 V 13 A 11 11 0 0 1 13 2 H 50 Z"
+                    fill="none"
+                    stroke="url(#hero-magic-gradient)"
+                    stroke-width="3.5"
+                    pathLength="100"
+                  />
+                </svg>
+                <div class="hero-flow__page" aria-hidden="true">
+                  <span class="hero-flow__line hero-flow__line--wide"></span>
+                  <span class="hero-flow__line"></span>
+                  <span class="hero-flow__line hero-flow__line--short"></span>
+                  <svg class="hero-flow__signature" data-flow-signature viewBox="0 0 96 28" aria-hidden="true">
+                    <path
+                      data-flow-signature-path
+                      d="M 2 20 C 2 11, 10 5, 18 11 C 24 16, 21 22, 14 20 C 9 18, 11 12, 20 9 C 30 6, 38 10, 40 17 C 42 24, 36 23, 32 18 C 28 13, 34 8, 44 9 C 54 10, 60 16, 62 14 C 66 10, 72 12, 76 18 C 80 24, 74 25, 70 20 M 74 20 C 80 14, 88 13, 92 18 C 95 22, 91 24, 87 21"
+                      fill="none"
+                      stroke="#15803d"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div class="hero-flow__tools" data-flow-tools></div>
+            </div>
+            <div class="hero-flow__upload">
+              <p class="hero-flow__upload-title" data-upload-title>Drop file here to start</p>
+              <p class="hero-flow__upload-formats">Supports PDF, DOC, DOCX, JPG, PNG</p>
+              <button type="button" class="dropzone__btn hero-flow__upload-btn" id="choose-file">
+                <svg class="icon icon--sm" aria-hidden="true"><use href="#document-plus"></use></svg>
+                Choose file
+              </button>
+              <p class="hero-flow__privacy">
+                <svg class="icon icon--sm" aria-hidden="true"><use href="#lock-closed"></use></svg>
+                Files stay private
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="logos-section" aria-label="Trusted by industry leaders">
+      <div class="logos-section__inner">
+        <h2 class="logos-section__title">PDF editor used by industry leaders</h2>
+        <div class="logos-section__cloud">
+          <img src="assets/logos/Container.svg" alt="Apple" width="108" height="64" loading="lazy">
+          <img src="assets/logos/Container-1.svg" alt="Google" width="98" height="64" loading="lazy">
+          <img src="assets/logos/Container-2.svg" alt="Amazon" width="105" height="64" loading="lazy">
+          <img src="assets/logos/Container-3.svg" alt="Microsoft" width="140" height="64" loading="lazy">
+          <img src="assets/logos/Container-4.svg" alt="Oracle" width="104" height="64" loading="lazy">
+          <img src="assets/logos/Container-5.svg" alt="Spotify" width="108" height="64" loading="lazy">
+          <img src="assets/logos/Container-6.svg" alt="IBM" width="80" height="64" loading="lazy">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Heroicons sprite -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+    <symbol id="chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/>
+    </symbol>
+    <symbol id="bars-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+    </symbol>
+    <symbol id="x-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/>
+    </symbol>
+    <symbol id="cloud-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0 3 3m-3-3-3 3M6.75 19.5a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.233-2.33 3 3 0 0 1 3.758 3.848A3.752 3.752 0 0 1 18 19.5H6.75Z"/>
+    </symbol>
+    <symbol id="document-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m3.75 9v6m3-3H9m1.5-12H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/>
+    </symbol>
+    <symbol id="shield-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/>
+    </symbol>
+    <symbol id="lock-closed" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"/>
+    </symbol>
+    <symbol id="check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+    </symbol>
+  </svg>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
