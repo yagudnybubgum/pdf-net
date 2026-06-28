@@ -154,6 +154,13 @@
       },
       {
         inputIcons: ['pdf'],
+        resultIcon: 'pdf',
+        resultLabel: 'signed.pdf',
+        tools: ['Sign', 'Annotate', 'Save'],
+        showSignature: true,
+      },
+      {
+        inputIcons: ['pdf'],
         resultIcon: 'docx',
         resultLabel: 'document.docx',
         tools: ['To Word', 'Save', 'Export'],
@@ -172,13 +179,6 @@
         resultLabel: 'photos.pdf',
         tools: ['From JPG', 'Rearrange', 'Merge'],
         showSignature: false,
-      },
-      {
-        inputIcons: ['pdf'],
-        resultIcon: 'pdf',
-        resultLabel: 'signed.pdf',
-        tools: ['Sign', 'Annotate', 'Save'],
-        showSignature: true,
       },
       {
         inputIcons: ['pdf'],
@@ -343,11 +343,10 @@
     function buildSceneTimeline(scene) {
       const activeFiles = files.slice(0, scene.inputIcons.length);
       const isMerge = scene.inputIcons.length > 1;
-      const startGap = isMerge ? 64 : 0;
+      const startGap = isMerge ? 96 : 0;
       const fileStarts = activeFiles.map((_, index) => ({
-        x: -430 - index * 84,
+        x: -430 - index * 126,
         y: (index - (activeFiles.length - 1) / 2) * startGap,
-        rotation: [-9, 7, -5, 8][index] || 0,
       }));
 
       const flyInStart = 0.5;
@@ -364,13 +363,13 @@
         .set(activeFiles, {
           x: (index) => fileStarts[index].x,
           y: (index) => fileStarts[index].y,
-          rotation: (index) => fileStarts[index].rotation,
+          rotation: 0,
           xPercent: -50,
           yPercent: -50,
           autoAlpha: 0,
           scale: 0.94,
         }, 0)
-        .set(result, { autoAlpha: 0, x: 175, xPercent: -50, yPercent: -50, scale: 0.88, rotation: 2 }, 0)
+        .set(result, { autoAlpha: 0, x: 260, xPercent: -50, yPercent: -50, scale: 0.88, rotation: 2 }, 0)
         .set(signature, { opacity: 0 }, 0)
         .set(signaturePath, { strokeDashoffset: signatureLength }, 0)
         .to(activeFiles, {
@@ -382,8 +381,7 @@
         .to(activeFiles, {
           x: 0,
           y: isMerge ? (index) => (index - (activeFiles.length - 1) / 2) * 12 : 0,
-          rotation: isMerge ? (index) => [-4, 0, 4][index] || 0 : 0,
-          scale: isMerge ? 0.76 : 0.68,
+          scale: isMerge ? 0.51 : 0.45,
           duration: 1.35,
           stagger: 0.1,
           ease: 'power3.inOut',
@@ -391,8 +389,7 @@
         .to(activeFiles, {
           x: 0,
           y: 0,
-          rotation: 0,
-          scale: 0.42,
+          scale: 0.28,
           autoAlpha: 0,
           duration: 0.48,
           stagger: 0.06,
@@ -404,7 +401,7 @@
           .to(signaturePath, {
             strokeDashoffset: 0,
             duration: 1.15,
-            ease: 'power2.inOut',
+            ease: 'none',
           }, processStart);
       }
 
@@ -434,7 +431,7 @@
         .to(pageRing, { opacity: 0, duration: 0.12 }, processStart + 1.48)
         .to(result, {
           autoAlpha: 1,
-          x: 310,
+          x: 420,
           scale: 1,
           rotation: 0,
           duration: 1.15,
@@ -442,7 +439,7 @@
         }, actionsStart + 0.95)
         .to(result, {
           autoAlpha: 0,
-          x: 470,
+          x: 600,
           scale: 0.92,
           duration: 0.6,
           ease: 'power2.in',
@@ -476,7 +473,7 @@
           .to(signaturePath, {
             strokeDashoffset: 0,
             duration: 1.15,
-            ease: 'power2.inOut',
+            ease: 'none',
           }, processStart);
       }
 

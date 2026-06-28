@@ -456,12 +456,12 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 62px;
-  height: 70px;
-  padding: 9px;
+  width: 93px;
+  height: 105px;
+  padding: 14px;
   background: rgba(255, 255, 255, 0.94);
   border: 1px solid rgba(25, 25, 24, 0.08);
-  border-radius: 14px;
+  border-radius: 21px;
   transform-origin: center;
   will-change: transform, opacity;
   top: 50%;
@@ -598,11 +598,6 @@ ul {
   pointer-events: none;
 }
 
-.hero-flow__signature path {
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-}
-
 .hero-flow__tools {
   align-self: start;
   font-size: 16px;
@@ -697,16 +692,16 @@ ul {
   position: absolute;
   top: 50%;
   left: 50%;
-  z-index: 1;
+  z-index: 4;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
   width: auto;
   max-width: none;
   height: auto;
-  padding: 8px 12px 8px 10px;
+  padding: 12px 18px 12px 15px;
   background: rgba(255, 255, 255, 0.94);
-  border-radius: 14px;
+  border-radius: 21px;
   transform-origin: center;
   will-change: transform, opacity;
   opacity: 0;
@@ -714,14 +709,14 @@ ul {
 }
 
 .hero-flow__result img {
-  width: 32px;
-  height: 32px;
+  width: 48px;
+  height: 48px;
   flex-shrink: 0;
   object-fit: contain;
 }
 
 .hero-flow__result span {
-  font-size: 13px;
+  font-size: 19.5px;
   font-weight: 700;
   color: var(--color-text);
   flex-shrink: 0;
@@ -731,6 +726,8 @@ ul {
   flex-shrink: 0;
   margin-left: 0;
   color: #16a34a;
+  width: 24px;
+  height: 24px;
 }
 
 .dropzone__icon {
