@@ -373,6 +373,12 @@ ul {
   text-align: center;
 }
 
+.hero__title,
+.hero__subtitle {
+  position: relative;
+  z-index: 4;
+}
+
 .hero__title {
   font-family: var(--font-serif);
   font-size: clamp(2rem, 5vw, 3rem);
@@ -391,6 +397,12 @@ ul {
   color: var(--color-text-muted);
   max-width: 580px;
   margin: 0 auto 24px;
+}
+
+@media (min-width: 769px) {
+  .hero__subtitle {
+    margin-bottom: 8px;
+  }
 }
 
 /* ── Dropzone ── */
@@ -430,8 +442,10 @@ ul {
 
 .hero-flow {
   position: relative;
+  z-index: 1;
   width: min(100%, 720px);
-  height: 420px;
+  min-height: 440px;
+  height: 440px;
   margin: 0 auto;
   overflow: visible;
   pointer-events: none;
@@ -671,12 +685,12 @@ ul {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 13px;
-  color: var(--color-text-muted);
+  font-size: 12px;
+  color: rgba(25, 25, 24, 0.38);
 }
 
 .hero-flow__privacy svg {
-  color: var(--color-text-muted);
+  color: rgba(25, 25, 24, 0.38);
 }
 
 .hero-flow__result {
@@ -780,6 +794,10 @@ ul {
   background: #4340d8;
 }
 
+.hero-flow__btn-label--mobile {
+  display: none;
+}
+
 .dropzone__privacy {
   display: inline-flex;
   align-items: center;
@@ -853,6 +871,86 @@ ul {
   }
 }
 
+@media (max-width: 768px) {
+  .hero-flow {
+    min-height: 0;
+    height: auto;
+  }
+
+  .hero-flow__file,
+  .hero-flow__result {
+    display: none !important;
+  }
+
+  .hero-flow__editor {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
+    max-width: 100%;
+    pointer-events: none;
+  }
+
+  .hero-flow__upload,
+  .hero-flow__upload * {
+    pointer-events: auto;
+  }
+
+  .hero-flow__upload-title {
+    display: none;
+  }
+
+  .hero-flow__btn-label--desktop {
+    display: none;
+  }
+
+  .hero-flow__btn-label--mobile {
+    display: inline;
+  }
+
+  .hero-flow__upload {
+    order: 0;
+    margin: 8px 16px 16px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    gap: 8px;
+  }
+
+  .hero-flow__upload-formats {
+    order: 2;
+    font-size: 12px;
+    color: rgba(25, 25, 24, 0.38);
+    text-align: center;
+  }
+
+  .hero-flow__upload .hero-flow__upload-btn {
+    order: 1;
+    width: 100%;
+    margin: 0;
+    justify-content: center;
+  }
+
+  .hero-flow__privacy {
+    order: 3;
+    font-size: 12px;
+    color: rgba(25, 25, 24, 0.38);
+    justify-content: center;
+  }
+
+  .hero-flow__tools {
+    font-size: 14px;
+  }
+
+  .hero-flow__editor:hover .hero-flow__upload,
+  .hero-flow__editor.is-dragover .hero-flow__upload {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+}
+
 @media (max-width: 480px) {
   .hero {
     padding: 32px 16px 64px;
@@ -860,14 +958,6 @@ ul {
 
   .header__inner {
     padding: 0 16px;
-  }
-
-  .hero-flow {
-    height: 400px;
-  }
-
-  .hero-flow__editor {
-    width: min(100%, 340px);
   }
 
   .hero-flow__editor-body {
@@ -878,19 +968,6 @@ ul {
 
   .hero-flow__page {
     height: 84px;
-  }
-
-  .hero-flow__upload {
-    margin-inline: 16px;
-    padding: 14px 14px 12px;
-  }
-
-  .hero-flow__upload-title {
-    font-size: 14px;
-  }
-
-  .hero-flow__upload-formats {
-    font-size: 12px;
   }
 
   .logos-section__title {

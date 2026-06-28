@@ -62,7 +62,10 @@
     fileInput.click();
   });
 
-  dropzone?.addEventListener('click', () => fileInput.click());
+  dropzone?.addEventListener('click', (e) => {
+    if (window.matchMedia('(max-width: 768px)').matches) return;
+    fileInput.click();
+  });
 
   dropzone?.addEventListener('dragover', (e) => {
     e.preventDefault();
@@ -89,8 +92,18 @@
     if (!files.length) return;
     const names = [...files].map((f) => f.name).join(', ');
     const title = document.querySelector('[data-upload-title]');
-    title.textContent = `${files.length} file${files.length > 1 ? 's' : ''} selected`;
-    title.title = names;
+    const mobileLabel = document.querySelector('.hero-flow__btn-label--mobile');
+    const countLabel = `${files.length} file${files.length > 1 ? 's' : ''} selected`;
+
+    if (title) {
+      title.textContent = countLabel;
+      title.title = names;
+    }
+
+    if (mobileLabel) {
+      mobileLabel.textContent = countLabel;
+      mobileLabel.title = names;
+    }
   }
 
   // ── Hero animation ──
@@ -110,6 +123,7 @@
     const pageRing = document.querySelector('[data-flow-page-ring]');
     const ringPath = document.querySelector('[data-flow-page-ring-path]');
     const magicGradient = document.querySelector('#hero-magic-gradient');
+    const isMobileFlow = window.matchMedia('(max-width: 768px)').matches;
 
     if (reduceMotion || !hasGsap || !dropzone || !files.length || !toolsContainer || !editor || !result || !resultIcon || !resultLabel || !pageRing || !ringPath || !signature || !signaturePath) {
       return;
@@ -307,6 +321,12 @@
       gsap.set(signature, { opacity: 0 });
       gsap.set(signaturePath, { strokeDashoffset: signatureLength });
 
+      files.forEach((file) => {
+        file.style.display = 'none';
+      });
+
+      if (isMobileFlow) return;
+
       files.forEach((file, index) => {
         const iconName = scene.inputIcons[index];
         const img = file.querySelector('img');
@@ -350,7 +370,6 @@
           autoAlpha: 0,
           scale: 0.94,
         }, 0)
-        .set(editor, { scale: 1, xPercent: -50, yPercent: -50 }, 0)
         .set(result, { autoAlpha: 0, x: 175, xPercent: -50, yPercent: -50, scale: 0.88, rotation: 2 }, 0)
         .set(signature, { opacity: 0 }, 0)
         .set(signaturePath, { strokeDashoffset: signatureLength }, 0)
@@ -441,6 +460,61 @@
       return tl;
     }
 
+    function buildMobileSceneTimeline(scene) {
+      const processStart = 0.2;
+      const tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
+
+      tl.set(pageRing, { opacity: 0 }, 0)
+        .set(ringPath, { strokeDasharray: 100, strokeDashoffset: 100 }, 0)
+        .set(signature, { opacity: 0 }, 0)
+        .set(signaturePath, { strokeDashoffset: signatureLength }, 0);
+
+      addToolHighlightsToTimeline(tl, scene, processStart);
+
+      if (scene.showSignature) {
+        tl.to(signature, { opacity: 1, duration: 0.12 }, processStart)
+          .to(signaturePath, {
+            strokeDashoffset: 0,
+            duration: 1.15,
+            ease: 'power2.inOut',
+          }, processStart);
+      }
+
+      tl.to(pageRing, { opacity: 1, duration: 0.15 }, processStart)
+        .to(ringPath, {
+          strokeDashoffset: 0,
+          duration: 0.7,
+          ease: 'power2.inOut',
+        }, processStart)
+        .to(magicGradient, {
+          attr: { x1: 100, y1: 0, x2: 0, y2: 100 },
+          duration: 0.7,
+          ease: 'none',
+        }, processStart)
+        .to(ringPath, {
+          strokeDashoffset: -100,
+          duration: 0.7,
+          ease: 'power2.inOut',
+        }, processStart + 0.75)
+        .to(magicGradient, {
+          attr: { x1: 0, y1: 0, x2: 100, y2: 100 },
+          duration: 0.7,
+          ease: 'none',
+        }, processStart + 0.75)
+        .to(pageRing, { opacity: 0, duration: 0.12 }, processStart + 1.48)
+        .add(() => {
+          gsap.set(pageRing, { opacity: 0 });
+          gsap.set(ringPath, { strokeDasharray: 100, strokeDashoffset: 100 });
+          if (magicGradient) {
+            gsap.set(magicGradient, { attr: { x1: 0, y1: 0, x2: 100, y2: 100 } });
+          }
+          gsap.set(signature, { opacity: 0 });
+          gsap.set(signaturePath, { strokeDashoffset: signatureLength });
+        }, processStart + 3.32 + HIGHLIGHT_MS);
+
+      return tl;
+    }
+
     function renderAllActions(container, actions) {
       container.innerHTML = actions
         .map((tool, index) => {
@@ -460,7 +534,10 @@
 
     scenarios.forEach((scenario) => {
       master.add(() => setupScene(scenario));
-      master.add(buildSceneTimeline(scenario), '>');
+      master.add(
+        isMobileFlow ? buildMobileSceneTimeline(scenario) : buildSceneTimeline(scenario),
+        '>',
+      );
     });
   }
 
