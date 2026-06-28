@@ -448,7 +448,6 @@ ul {
   background: rgba(255, 255, 255, 0.94);
   border: 1px solid rgba(25, 25, 24, 0.08);
   border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(25, 25, 24, 0.11);
   transform-origin: center;
   will-change: transform, opacity;
   top: 50%;
@@ -693,9 +692,7 @@ ul {
   height: auto;
   padding: 8px 12px 8px 10px;
   background: rgba(255, 255, 255, 0.94);
-  border: 1px solid rgba(25, 25, 24, 0.08);
   border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(25, 25, 24, 0.11);
   transform-origin: center;
   will-change: transform, opacity;
   opacity: 0;
