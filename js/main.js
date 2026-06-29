@@ -146,13 +146,7 @@
 
     const scenarios = [
       {
-        inputIcons: ['pdf', 'pdf', 'pdf'],
-        resultIcon: 'pdf',
-        resultLabel: 'merged.pdf',
-        tools: ['Merge', 'Rearrange', 'Export'],
-        showSignature: false,
-      },
-      {
+        // Sign a contract — single doc, straight to signature
         inputIcons: ['pdf'],
         resultIcon: 'pdf',
         resultLabel: 'signed.pdf',
@@ -160,59 +154,19 @@
         showSignature: true,
       },
       {
-        inputIcons: ['pdf'],
-        resultIcon: 'docx',
-        resultLabel: 'document.docx',
-        tools: ['To Word', 'Save', 'Export'],
-        showSignature: false,
-      },
-      {
-        inputIcons: ['docx'],
+        // Merge RFP pages — multiple PDFs combined, then signed for submission
+        inputIcons: ['pdf', 'pdf', 'pdf'],
         resultIcon: 'pdf',
-        resultLabel: 'converted.pdf',
-        tools: ['To PDF', 'Save', 'Export'],
-        showSignature: false,
+        resultLabel: 'submission.pdf',
+        tools: ['Merge', 'Rearrange', 'Sign'],
+        showSignature: true,
       },
       {
-        inputIcons: ['jpeg', 'jpeg'],
-        resultIcon: 'pdf',
-        resultLabel: 'photos.pdf',
-        tools: ['From JPG', 'Rearrange', 'Merge'],
-        showSignature: false,
-      },
-      {
-        inputIcons: ['pdf'],
-        resultIcon: 'pdf',
-        resultLabel: 'compressed.pdf',
-        tools: ['Compress', 'Save', 'Export'],
-        showSignature: false,
-      },
-      {
-        inputIcons: ['pdf'],
-        resultIcon: 'pdf',
-        resultLabel: 'split-pages.pdf',
-        tools: ['Split', 'Rotate', 'Export'],
-        showSignature: false,
-      },
-      {
-        inputIcons: ['pdf'],
-        resultIcon: 'xlsx',
-        resultLabel: 'data.xlsx',
-        tools: ['To Excel', 'Edit', 'Export'],
-        showSignature: false,
-      },
-      {
-        inputIcons: ['pdf'],
-        resultIcon: 'pdf',
-        resultLabel: 'protected.pdf',
-        tools: ['Protect', 'Save', 'Export'],
-        showSignature: false,
-      },
-      {
+        // Edit text before signing — fix content, annotate, then sign off
         inputIcons: ['pdf'],
         resultIcon: 'pdf',
         resultLabel: 'final.pdf',
-        tools: ['Unlock', 'Edit', 'Sign'],
+        tools: ['Edit', 'Annotate', 'Sign'],
         showSignature: true,
       },
     ];
