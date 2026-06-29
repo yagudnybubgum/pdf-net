@@ -1,5 +1,9 @@
 /* Task 2 — funnel analysis page */
 
+body:has(.task2) {
+  background: #fff;
+}
+
 .task2 {
   --t2-prose-width: 42rem;
   --t2-stage-width: 1080px;
@@ -461,7 +465,7 @@
 
 .paywall {
   font-family: var(--font-sans);
-  background: #fff;
+  background: #F7F7F7;
   color: #111827;
 }
 
@@ -558,7 +562,7 @@
 .paywall__preview {
   width: 100%;
   max-width: 100%;
-  background: #f3f4f6;
+  background: #EDEDED;
   border-radius: 12px;
   padding: 16px 16px 20px;
 }
@@ -566,6 +570,7 @@
 .paywall__ready {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
   font-size: 14px;
   font-weight: 500;
@@ -946,7 +951,7 @@
 
 .checkout {
   font-family: var(--font-sans);
-  background: #fff;
+  background: #F7F7F7;
   color: #111827;
 }
 

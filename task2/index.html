@@ -78,141 +78,12 @@
     <section class="task2__section">
       <div class="task2-prose">
       <span class="task2__section-num">1</span>
-      <h2 class="task2__section-title">Unify entry: upload-first header CTA</h2>
-      <p>
-        Replace header "Get started" (signup) with the same action as the hero: <strong>upload a file</strong>. New visitors should enter the editor immediately, not create an account first.
-      </p>
-      <p>
-        Move login to a secondary <strong>account icon</strong> for returning subscribers who need access to their documents. Login stays visible but no longer competes with the primary CTA.
-      </p>
-
-      <p class="task2-funnel-label">Header CTA flow today</p>
-      <div class="task2-funnel task2-funnel--entry" aria-label="Current header entry flow">
-        <span class="task2-funnel__step">Header "Get started"</span>
-        <span class="task2-funnel__arrow">→</span>
-        <span class="task2-funnel__step task2-funnel__step--weak">Sign up</span>
-        <span class="task2-funnel__arrow">→</span>
-        <span class="task2-funnel__step task2-funnel__step--weak">Empty dashboard</span>
-        <span class="task2-funnel__arrow">→</span>
-        <span class="task2-funnel__step task2-funnel__step--weak">Upload again</span>
-        <span class="task2-funnel__arrow">→</span>
-        <span class="task2-funnel__step">Editor</span>
-        <span class="task2-funnel__arrow">→</span>
-        <span class="task2-funnel__step">Download</span>
-        <span class="task2-funnel__arrow">→</span>
-        <span class="task2-funnel__step">Paywall</span>
-      </div>
-
-      <p class="task2-funnel-label">Header CTA flow after change</p>
-      <div class="task2-funnel task2-funnel--entry task2-funnel--entry-last" aria-label="Proposed header entry flow">
-        <span class="task2-funnel__step">Header "Upload file"</span>
-        <span class="task2-funnel__arrow">→</span>
-        <span class="task2-funnel__step task2-funnel__step--skipped">Sign up</span>
-        <span class="task2-funnel__arrow task2-funnel__arrow--muted">→</span>
-        <span class="task2-funnel__step task2-funnel__step--skipped">Empty dashboard</span>
-        <span class="task2-funnel__arrow task2-funnel__arrow--muted">→</span>
-        <span class="task2-funnel__step task2-funnel__step--skipped">Upload again</span>
-        <span class="task2-funnel__arrow task2-funnel__arrow--muted">→</span>
-        <span class="task2-funnel__step task2-funnel__step--current">Editor</span>
-        <span class="task2-funnel__arrow">→</span>
-        <span class="task2-funnel__step">Download</span>
-        <span class="task2-funnel__arrow">→</span>
-        <span class="task2-funnel__step">Auth</span>
-        <span class="task2-funnel__arrow">→</span>
-        <span class="task2-funnel__step">Paywall</span>
-      </div>
-      </div>
-
-      <div class="task2-stage">
-      <div class="task2-mockup-block task2-mockup-block--header">
-        <p class="task2-mockup__caption">Current</p>
-        <div class="task2-mockup">
-          <div class="task2-mockup__header">
-            <a href="#" class="task2-mockup__logo" tabindex="-1" aria-hidden="true">
-              <img src="../assets/logo.svg" alt="" width="120" height="32">
-            </a>
-            <div class="task2-mockup__nav" aria-hidden="true">
-              <span>Edit text</span>
-              <span>Merge</span>
-              <span>Sign</span>
-              <span>Convert</span>
-              <span>More</span>
-            </div>
-            <div class="task2-mockup__actions">
-              <span class="task2-mockup__lang">EN</span>
-              <span class="task2-mockup__login">Login</span>
-              <span class="task2-mockup__cta-old">Get started</span>
-            </div>
-          </div>
-        </div>
-        <p class="task2-mockup__footnote">Header CTA leads to signup → empty dashboard. Competes with hero upload.</p>
-      </div>
-
-      <div class="task2-mockup-block task2-mockup-block--header">
-        <div class="task2-mockup__meta">
-          <p class="task2-mockup__caption">Proposed</p>
-          <label class="mock-annot-toggle">
-            <input type="checkbox" id="header-annotations-toggle" checked data-annot-target="header-annot-wrap">
-            <span class="mock-annot-toggle__track" aria-hidden="true"></span>
-            <span class="mock-annot-toggle__label">Show change annotations</span>
-          </label>
-        </div>
-        <div class="task2-mockup task2-mockup--annot">
-          <div class="mock-annot-wrap mock-annot-wrap--on mock-annot-wrap--header" id="header-annot-wrap">
-            <div class="mock-annot-stage mock-annot-stage--header">
-              <div class="task2-mockup__header">
-                <a href="#" class="task2-mockup__logo" tabindex="-1" aria-hidden="true">
-                  <img src="../assets/logo.svg" alt="" width="120" height="32">
-                </a>
-                <div class="task2-mockup__nav" aria-hidden="true">
-                  <span>Edit text</span>
-                  <span>Merge</span>
-                  <span>Sign</span>
-                  <span>Convert</span>
-                  <span>More</span>
-                </div>
-                <div class="task2-mockup__actions">
-                  <span class="task2-mockup__lang">EN</span>
-                  <button type="button" class="task2-mockup__account" aria-label="Log in to your account">
-                    <svg class="icon" aria-hidden="true"><use href="#user-circle"></use></svg>
-                  </button>
-                  <button type="button" class="task2-mockup__cta-new">
-                    <svg aria-hidden="true"><use href="#cloud-arrow-up"></use></svg>
-                    Upload file
-                  </button>
-                </div>
-              </div>
-              <aside class="mock-annot-col mock-annot-col--header" aria-label="Change annotations">
-                <div class="mock-annot">
-                  <span class="mock-annot__dot" aria-hidden="true"></span>
-                  <span class="mock-annot__text">Account icon for returning users with files or subscription</span>
-                </div>
-                <div class="mock-annot mock-annot--header-upload">
-                  <span class="mock-annot__dot" aria-hidden="true"></span>
-                  <span class="mock-annot__text">Upload file, same primary action as hero</span>
-                </div>
-              </aside>
-            </div>
-          </div>
-        </div>
-        <p class="task2-mockup__footnote">Same flow as hero. Account icon for returning users with existing files/subscription.</p>
-      </div>
-      </div>
-
-      <div class="task2-prose">
-      <p>
-        Higher activation rate (file uploaded → editor opened), fewer users hitting empty dashboard, more high-intent traffic reaching paywall.
-      </p>
-      </div>
-    </section>
-
-    <!-- Change 2 -->
-    <section class="task2__section">
-      <div class="task2-prose">
-      <span class="task2__section-num">2</span>
       <h2 class="task2__section-title">Paywall pricing redesign</h2>
       <p>
-        Pricing appears at download, when intent is highest. Two approaches to test: simplified plan selection, or skipping it entirely and going straight to payment.
+        Production paywall breaks trust: unclear tiers, hidden renewal, generic features. Users need clarity, not three plans to compare.
+      </p>
+      <p>
+        Variant A offers two options: trial for first-timers, annual for committed users. Renewal sits on the plan card; copy ties to the user's file. This captures annual upfront and tests whether simpler choice lifts conversion without dropping the plan step.
       </p>
       </div>
 
@@ -360,17 +231,20 @@
             </div>
           </div>
         </div>
-        <p class="task2-mockup__footnote">Trial for new users, annual for price-sensitive visitors who already know they need the tool long-term.</p>
+        <p class="task2-mockup__footnote">Trial default for new users; annual for visitors ready to commit upfront.</p>
       </div>
       </div>
 
       <div class="task2-prose">
         <p class="task2-mockup__caption">Variant B: payment step (no plan selection)</p>
         <p class="task2-variant-intro">
-          With one default plan there is nothing to choose. We skip the plan screen and send users straight to payment, removing one step at peak intent.
+          At download, the job is done: the file is ready and the user wants to leave with it. Most visitors came to finish one task, not to compare tiers. Plan selection at this moment adds friction when intent is highest.
         </p>
         <p class="task2-variant-intro">
-          We accept that some upfront annual revenue is lost at checkout. Annual will be upsold later via trial-ending email, the cancel flow, and billing settings, when users already understand the product.
+          With one default plan, there is nothing to choose. We skip the plan screen and send users straight to payment, removing one step from the path to download.
+        </p>
+        <p class="task2-variant-intro">
+          We accept that some upfront annual revenue is lost at checkout. Annual can be upsold later via trial-ending email, the cancel flow, and billing settings, once users understand the product. Variant A keeps choice for price-sensitive visitors; Variant B bets on higher checkout completion and recovers annual downstream.
         </p>
 
         <div class="task2-funnel task2-funnel--checkout" aria-label="Variant B checkout funnel">
@@ -470,6 +344,138 @@
         </div>
         <p class="task2-mockup__footnote">A/B test against Variant A on checkout completion and trial-to-paid rate.</p>
       </div>
+      </div>
+    </section>
+
+    <!-- Change 2 -->
+    <section class="task2__section">
+      <div class="task2-prose">
+      <span class="task2__section-num">2</span>
+      <h2 class="task2__section-title">Unify entry: upload-first header CTA</h2>
+      <p>
+        Replace header "Get started" (signup) with the same action as the hero: <strong>upload a file</strong>. New visitors should enter the editor immediately, not create an account first.
+      </p>
+      <p>
+        Move login to a secondary <strong>account icon</strong> for returning subscribers who need access to their documents. Login stays visible but no longer competes with the primary CTA.
+      </p>
+
+      <p class="task2-funnel-label">Header CTA flow today</p>
+      <div class="task2-funnel task2-funnel--entry" aria-label="Current header entry flow">
+        <span class="task2-funnel__step">Header "Get started"</span>
+        <span class="task2-funnel__arrow">→</span>
+        <span class="task2-funnel__step task2-funnel__step--weak">Sign up</span>
+        <span class="task2-funnel__arrow">→</span>
+        <span class="task2-funnel__step task2-funnel__step--weak">Empty dashboard</span>
+        <span class="task2-funnel__arrow">→</span>
+        <span class="task2-funnel__step task2-funnel__step--weak">Upload again</span>
+        <span class="task2-funnel__arrow">→</span>
+        <span class="task2-funnel__step">Editor</span>
+        <span class="task2-funnel__arrow">→</span>
+        <span class="task2-funnel__step">Download</span>
+        <span class="task2-funnel__arrow">→</span>
+        <span class="task2-funnel__step">Paywall</span>
+      </div>
+
+      <p class="task2-funnel-label">Header CTA flow after change</p>
+      <div class="task2-funnel task2-funnel--entry task2-funnel--entry-last" aria-label="Proposed header entry flow">
+        <span class="task2-funnel__step">Header "Upload file"</span>
+        <span class="task2-funnel__arrow">→</span>
+        <span class="task2-funnel__step task2-funnel__step--skipped">Sign up</span>
+        <span class="task2-funnel__arrow task2-funnel__arrow--muted">→</span>
+        <span class="task2-funnel__step task2-funnel__step--skipped">Empty dashboard</span>
+        <span class="task2-funnel__arrow task2-funnel__arrow--muted">→</span>
+        <span class="task2-funnel__step task2-funnel__step--skipped">Upload again</span>
+        <span class="task2-funnel__arrow task2-funnel__arrow--muted">→</span>
+        <span class="task2-funnel__step task2-funnel__step--current">Editor</span>
+        <span class="task2-funnel__arrow">→</span>
+        <span class="task2-funnel__step">Download</span>
+        <span class="task2-funnel__arrow">→</span>
+        <span class="task2-funnel__step">Auth</span>
+        <span class="task2-funnel__arrow">→</span>
+        <span class="task2-funnel__step">Paywall</span>
+      </div>
+      </div>
+
+      <div class="task2-stage">
+      <div class="task2-mockup-block task2-mockup-block--header">
+        <p class="task2-mockup__caption">Current</p>
+        <div class="task2-mockup">
+          <div class="task2-mockup__header">
+            <a href="#" class="task2-mockup__logo" tabindex="-1" aria-hidden="true">
+              <img src="../assets/logo.svg" alt="" width="120" height="32">
+            </a>
+            <div class="task2-mockup__nav" aria-hidden="true">
+              <span>Edit text</span>
+              <span>Merge</span>
+              <span>Sign</span>
+              <span>Convert</span>
+              <span>More</span>
+            </div>
+            <div class="task2-mockup__actions">
+              <span class="task2-mockup__lang">EN</span>
+              <span class="task2-mockup__login">Login</span>
+              <span class="task2-mockup__cta-old">Get started</span>
+            </div>
+          </div>
+        </div>
+        <p class="task2-mockup__footnote">Header CTA leads to signup → empty dashboard. Competes with hero upload.</p>
+      </div>
+
+      <div class="task2-mockup-block task2-mockup-block--header">
+        <div class="task2-mockup__meta">
+          <p class="task2-mockup__caption">Proposed</p>
+          <label class="mock-annot-toggle">
+            <input type="checkbox" id="header-annotations-toggle" checked data-annot-target="header-annot-wrap">
+            <span class="mock-annot-toggle__track" aria-hidden="true"></span>
+            <span class="mock-annot-toggle__label">Show change annotations</span>
+          </label>
+        </div>
+        <div class="task2-mockup task2-mockup--annot">
+          <div class="mock-annot-wrap mock-annot-wrap--on mock-annot-wrap--header" id="header-annot-wrap">
+            <div class="mock-annot-stage mock-annot-stage--header">
+              <div class="task2-mockup__header">
+                <a href="#" class="task2-mockup__logo" tabindex="-1" aria-hidden="true">
+                  <img src="../assets/logo.svg" alt="" width="120" height="32">
+                </a>
+                <div class="task2-mockup__nav" aria-hidden="true">
+                  <span>Edit text</span>
+                  <span>Merge</span>
+                  <span>Sign</span>
+                  <span>Convert</span>
+                  <span>More</span>
+                </div>
+                <div class="task2-mockup__actions">
+                  <span class="task2-mockup__lang">EN</span>
+                  <button type="button" class="task2-mockup__account" aria-label="Log in to your account">
+                    <svg class="icon" aria-hidden="true"><use href="#user-circle"></use></svg>
+                  </button>
+                  <button type="button" class="task2-mockup__cta-new">
+                    <svg aria-hidden="true"><use href="#cloud-arrow-up"></use></svg>
+                    Upload file
+                  </button>
+                </div>
+              </div>
+              <aside class="mock-annot-col mock-annot-col--header" aria-label="Change annotations">
+                <div class="mock-annot">
+                  <span class="mock-annot__dot" aria-hidden="true"></span>
+                  <span class="mock-annot__text">Account icon for returning users with files or subscription</span>
+                </div>
+                <div class="mock-annot mock-annot--header-upload">
+                  <span class="mock-annot__dot" aria-hidden="true"></span>
+                  <span class="mock-annot__text">Upload file, same primary action as hero</span>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </div>
+        <p class="task2-mockup__footnote">Same flow as hero. Account icon for returning users with existing files/subscription.</p>
+      </div>
+      </div>
+
+      <div class="task2-prose">
+      <p>
+        Higher activation rate (file uploaded → editor opened), fewer users hitting empty dashboard, more high-intent traffic reaching paywall.
+      </p>
       </div>
     </section>
 
