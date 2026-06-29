@@ -129,12 +129,47 @@
       return;
     }
 
-    const signatureLength = signaturePath.getTotalLength();
-    gsap.set(signaturePath, {
-      strokeDasharray: signatureLength,
-      strokeDashoffset: signatureLength,
-    });
-    gsap.set(signature, { opacity: 0 });
+    const SIGNATURE_PATHS = {
+      contract: 'M 2 20 C 2 11, 10 5, 18 11 C 24 16, 21 22, 14 20 C 9 18, 11 12, 20 9 C 30 6, 38 10, 40 17 C 42 24, 36 23, 32 18 C 28 13, 34 8, 44 9 C 54 10, 60 16, 62 14 C 66 10, 72 12, 76 18 C 80 24, 74 25, 70 20 L 74 20 C 80 14, 88 13, 92 18 C 95 22, 91 24, 87 21',
+      submission: 'M 4 18 C 4 10, 14 8, 18 14 C 22 20, 14 22, 10 18 C 8 16, 12 11, 22 10 C 34 8, 44 13, 48 17 C 52 21, 46 23, 40 19 C 46 17, 52 12, 54 11 C 60 8, 68 10, 70 15 C 72 20, 66 22, 61 19 C 54 22, 46 23, 42 24 L 90 24',
+      final: 'M 6 22 L 6 11 C 6 11, 16 9, 20 14 C 24 19, 18 21, 14 19 L 28 22 L 28 13 L 40 22 L 28 17 L 38 17 L 46 20 C 54 16, 66 14, 78 11 C 86 9, 92 14, 93 19',
+    };
+
+    const SIG_DASH = 100;
+    const SIGNATURE_ROTATION = -7;
+
+    function resetSignatureDash() {
+      gsap.killTweensOf(signaturePath);
+      gsap.set(signaturePath, {
+        strokeDasharray: SIG_DASH,
+        strokeDashoffset: SIG_DASH,
+        opacity: 0,
+      });
+    }
+
+    function hideSignaturePath() {
+      gsap.set(signaturePath, {
+        strokeDasharray: SIG_DASH,
+        strokeDashoffset: SIG_DASH,
+        opacity: 0,
+      });
+    }
+
+    function setSignaturePath(pathKey) {
+      const d = SIGNATURE_PATHS[pathKey];
+      if (!d) return;
+
+      signaturePath.setAttribute('d', d);
+      signaturePath.setAttribute('pathLength', '100');
+      resetSignatureDash();
+      gsap.set(signature, {
+        opacity: 1,
+        rotation: SIGNATURE_ROTATION,
+        transformOrigin: '50% 50%',
+      });
+    }
+
+    setSignaturePath('contract');
 
     const icons = {
       pdf: 'assets/icons/pdf.svg',
@@ -146,28 +181,28 @@
 
     const scenarios = [
       {
-        // Sign a contract — single doc, straight to signature
         inputIcons: ['pdf'],
         resultIcon: 'pdf',
         resultLabel: 'signed.pdf',
         tools: ['Sign', 'Annotate', 'Save'],
         showSignature: true,
+        signaturePath: 'contract',
       },
       {
-        // Merge RFP pages — multiple PDFs combined, then signed for submission
         inputIcons: ['pdf', 'pdf', 'pdf'],
         resultIcon: 'pdf',
         resultLabel: 'submission.pdf',
         tools: ['Merge', 'Rearrange', 'Sign'],
         showSignature: true,
+        signaturePath: 'submission',
       },
       {
-        // Edit text before signing — fix content, annotate, then sign off
         inputIcons: ['pdf'],
         resultIcon: 'pdf',
         resultLabel: 'final.pdf',
         tools: ['Edit', 'Annotate', 'Sign'],
         showSignature: true,
+        signaturePath: 'final',
       },
     ];
 
@@ -268,12 +303,44 @@
       tl.to({}, { duration: HIGHLIGHT_MS, ease: 'none' }, exitTime);
     }
 
+    function runSignatureAnimation() {
+      gsap.killTweensOf(signaturePath);
+      gsap.set(signaturePath, {
+        opacity: 1,
+        strokeDasharray: SIG_DASH,
+        strokeDashoffset: SIG_DASH,
+      });
+
+      gsap.timeline({ defaults: { ease: 'power2.inOut' } })
+        .to(signaturePath, {
+          strokeDashoffset: 0,
+          duration: 1.05,
+        })
+        .to(signaturePath, {
+          strokeDashoffset: -SIG_DASH,
+          duration: 1.05,
+          onComplete: hideSignaturePath,
+        }, '+=0.05');
+    }
+
+    function resetSignature() {
+      resetSignatureDash();
+      gsap.set(signature, {
+        opacity: 1,
+        rotation: SIGNATURE_ROTATION,
+        transformOrigin: '50% 50%',
+      });
+    }
+
     function setupScene(scene) {
       resultIcon.src = icons[scene.resultIcon];
       resultLabel.textContent = scene.resultLabel;
 
-      gsap.set(signature, { opacity: 0 });
-      gsap.set(signaturePath, { strokeDashoffset: signatureLength });
+      if (scene.signaturePath) {
+        setSignaturePath(scene.signaturePath);
+      } else {
+        resetSignature();
+      }
 
       files.forEach((file) => {
         file.style.display = 'none';
@@ -324,8 +391,11 @@
           scale: 0.94,
         }, 0)
         .set(result, { autoAlpha: 0, x: 260, xPercent: -50, yPercent: -50, scale: 0.88, rotation: 2 }, 0)
-        .set(signature, { opacity: 0 }, 0)
-        .set(signaturePath, { strokeDashoffset: signatureLength }, 0)
+        .set(signature, { opacity: 1, rotation: SIGNATURE_ROTATION }, 0)
+        .set(signaturePath, {
+          strokeDasharray: SIG_DASH,
+          strokeDashoffset: SIG_DASH,
+        }, 0)
         .to(activeFiles, {
           autoAlpha: 1,
           scale: 1,
@@ -350,15 +420,6 @@
           ease: 'power2.in',
         }, actionsStart);
 
-      if (scene.showSignature) {
-        tl.to(signature, { opacity: 1, duration: 0.12 }, processStart)
-          .to(signaturePath, {
-            strokeDashoffset: 0,
-            duration: 1.15,
-            ease: 'none',
-          }, processStart);
-      }
-
       addToolHighlightsToTimeline(tl, scene, processStart);
 
       tl.to(pageRing, { opacity: 1, duration: 0.15 }, processStart)
@@ -383,6 +444,7 @@
           ease: 'none',
         }, processStart + 0.75)
         .to(pageRing, { opacity: 0, duration: 0.12 }, processStart + 1.48)
+        .call(runSignatureAnimation, null, processStart)
         .to(result, {
           autoAlpha: 1,
           x: 420,
@@ -404,8 +466,7 @@
           if (magicGradient) {
             gsap.set(magicGradient, { attr: { x1: 0, y1: 0, x2: 100, y2: 100 } });
           }
-          gsap.set(signature, { opacity: 0 });
-          gsap.set(signaturePath, { strokeDashoffset: signatureLength });
+          resetSignatureDash();
         }, processStart + 3.32 + HIGHLIGHT_MS);
 
       return tl;
@@ -417,19 +478,13 @@
 
       tl.set(pageRing, { opacity: 0 }, 0)
         .set(ringPath, { strokeDasharray: 100, strokeDashoffset: 100 }, 0)
-        .set(signature, { opacity: 0 }, 0)
-        .set(signaturePath, { strokeDashoffset: signatureLength }, 0);
+        .set(signature, { opacity: 1, rotation: SIGNATURE_ROTATION }, 0)
+        .set(signaturePath, {
+          strokeDasharray: SIG_DASH,
+          strokeDashoffset: SIG_DASH,
+        }, 0);
 
       addToolHighlightsToTimeline(tl, scene, processStart);
-
-      if (scene.showSignature) {
-        tl.to(signature, { opacity: 1, duration: 0.12 }, processStart)
-          .to(signaturePath, {
-            strokeDashoffset: 0,
-            duration: 1.15,
-            ease: 'none',
-          }, processStart);
-      }
 
       tl.to(pageRing, { opacity: 1, duration: 0.15 }, processStart)
         .to(ringPath, {
@@ -453,14 +508,15 @@
           ease: 'none',
         }, processStart + 0.75)
         .to(pageRing, { opacity: 0, duration: 0.12 }, processStart + 1.48)
-        .add(() => {
+        .call(runSignatureAnimation, null, processStart);
+
+      tl.add(() => {
           gsap.set(pageRing, { opacity: 0 });
           gsap.set(ringPath, { strokeDasharray: 100, strokeDashoffset: 100 });
           if (magicGradient) {
             gsap.set(magicGradient, { attr: { x1: 0, y1: 0, x2: 100, y2: 100 } });
           }
-          gsap.set(signature, { opacity: 0 });
-          gsap.set(signaturePath, { strokeDashoffset: signatureLength });
+          resetSignatureDash();
         }, processStart + 3.32 + HIGHLIGHT_MS);
 
       return tl;

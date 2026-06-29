@@ -538,6 +538,7 @@ ul {
   position: relative;
   align-self: start;
   width: 100%;
+  overflow: visible;
 }
 
 .hero-flow__page-ring {
@@ -567,6 +568,7 @@ ul {
   background: #fff;
   border: 1px solid rgba(25, 25, 24, 0.08);
   border-radius: 10px;
+  overflow: visible;
 }
 
 .hero-flow__line {
@@ -592,8 +594,6 @@ ul {
   bottom: 6px;
   width: 68px;
   height: 20px;
-  opacity: 0;
-  transform: rotate(-7deg);
   overflow: visible;
   pointer-events: none;
 }

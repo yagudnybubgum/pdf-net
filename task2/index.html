@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Task 2 — Funnel optimization | pdf.net</title>
+  <title>Task 2: Funnel optimization | pdf.net</title>
   <link rel="icon" href="../fav.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,7 +12,8 @@
   <link rel="stylesheet" href="../css/task2.css">
 </head>
 <body>
-  <main class="task2 task2--wide">
+  <main class="task2">
+    <div class="task2-prose">
     <a href="../" class="task2__back">
       <svg class="icon icon--sm" aria-hidden="true"><use href="#arrow-left"></use></svg>
       Back to landing
@@ -22,11 +23,12 @@
     <h1 class="task2__title">Fix the weakest funnel step</h1>
     <p class="task2__lead">
       Funnel: landing → sign up → first tool use → paywall → purchase.
-      Analysis based on production screenshots and two entry paths on pdf.net.
     </p>
+    </div>
 
     <!-- Context -->
     <section class="task2__section">
+      <div class="task2-prose">
       <h2 class="task2__section-title">Current state</h2>
       <p>
         There are two competing entry paths from the landing page:
@@ -50,268 +52,262 @@
         <span class="task2-funnel__arrow">→</span>
         <span class="task2-funnel__step task2-funnel__step--weak">Purchase</span>
       </div>
+      </div>
     </section>
 
     <!-- Weakest step -->
     <section class="task2__section">
+      <div class="task2-prose">
       <h2 class="task2__section-title">Weakest step</h2>
       <p>
-        <strong>Paywall → purchase</strong> is the primary bottleneck. Both paths converge here at peak intent — the user has edited a document and sees "Your document is ready" — yet pricing creates the largest drop.
+        <strong>Paywall → purchase</strong> is the primary bottleneck. Both paths converge here at peak intent. The user has edited a document and sees "Your document is ready", yet pricing creates the largest drop.
       </p>
       <ul>
         <li>Three plan tiers with unclear differences ("limited" vs "full" access)</li>
         <li>Hidden renewal: $0.95/$1.95 trial, then $49.88/mo in fine print</li>
         <li>Generic "Continue" CTA placed above plan selection</li>
-        <li>No pricing page on site — surprise pricing only at download moment</li>
+        <li>No pricing page on site; surprise pricing only at download moment</li>
       </ul>
       <p>
         Secondary leak: <strong>sign up → first tool use</strong> on the header path (empty dashboard, second upload). Fixing entry increases qualified traffic to the paywall.
       </p>
+      </div>
     </section>
 
     <!-- Change 1 -->
     <section class="task2__section">
+      <div class="task2-prose">
       <span class="task2__section-num">1</span>
       <h2 class="task2__section-title">Unify entry: upload-first header CTA</h2>
       <p>
-        Replace header "Get started" (signup) with the same action as the hero — <strong>upload a file</strong>. New visitors should enter the editor immediately, not create an account first.
+        Replace header "Get started" (signup) with the same action as the hero: <strong>upload a file</strong>. New visitors should enter the editor immediately, not create an account first.
       </p>
       <p>
         Move login to a secondary <strong>account icon</strong> for returning subscribers who need access to their documents. Login stays visible but no longer competes with the primary CTA.
       </p>
 
-      <div class="task2-mockup">
-        <div class="task2-mockup__label">Current</div>
-        <div class="task2-mockup__header">
-          <a href="#" class="task2-mockup__logo" tabindex="-1" aria-hidden="true">
-            <img src="../assets/logo.svg" alt="" width="100" height="28">
-          </a>
-          <div class="task2-mockup__nav" aria-hidden="true">
-            <span>Edit text</span>
-            <span>Merge</span>
-            <span>Sign</span>
-            <span>Convert</span>
-            <span>More</span>
-          </div>
-          <div class="task2-mockup__actions">
-            <span class="task2-mockup__lang">EN</span>
-            <span class="task2-mockup__login">Login</span>
-            <span class="task2-mockup__cta-old">Get started</span>
-          </div>
-        </div>
-        <div class="task2-mockup__note">Header CTA leads to signup → empty dashboard. Competes with hero upload.</div>
+      <p class="task2-funnel-label">Header CTA flow today</p>
+      <div class="task2-funnel task2-funnel--entry" aria-label="Current header entry flow">
+        <span class="task2-funnel__step">Header "Get started"</span>
+        <span class="task2-funnel__arrow">→</span>
+        <span class="task2-funnel__step task2-funnel__step--weak">Sign up</span>
+        <span class="task2-funnel__arrow">→</span>
+        <span class="task2-funnel__step task2-funnel__step--weak">Empty dashboard</span>
+        <span class="task2-funnel__arrow">→</span>
+        <span class="task2-funnel__step task2-funnel__step--weak">Upload again</span>
+        <span class="task2-funnel__arrow">→</span>
+        <span class="task2-funnel__step">Editor</span>
+        <span class="task2-funnel__arrow">→</span>
+        <span class="task2-funnel__step">Download</span>
+        <span class="task2-funnel__arrow">→</span>
+        <span class="task2-funnel__step">Paywall</span>
       </div>
 
-      <div class="task2-mockup__arrow" aria-hidden="true">↓</div>
-
-      <div class="task2-mockup">
-        <div class="task2-mockup__label task2-mockup__label--after">Proposed</div>
-        <div class="task2-mockup__header">
-          <a href="#" class="task2-mockup__logo" tabindex="-1" aria-hidden="true">
-            <img src="../assets/logo.svg" alt="" width="100" height="28">
-          </a>
-          <div class="task2-mockup__nav" aria-hidden="true">
-            <span>Edit text</span>
-            <span>Merge</span>
-            <span>Sign</span>
-            <span>Convert</span>
-            <span>More</span>
-          </div>
-          <div class="task2-mockup__actions">
-            <span class="task2-mockup__lang">EN</span>
-            <button type="button" class="task2-mockup__account" aria-label="Log in to your account">
-              <svg class="icon" aria-hidden="true"><use href="#user-circle"></use></svg>
-            </button>
-            <button type="button" class="task2-mockup__cta-new">
-              <svg aria-hidden="true"><use href="#cloud-arrow-up"></use></svg>
-              Upload file
-            </button>
-          </div>
-        </div>
-        <div class="task2-mockup__note">Same flow as hero. Account icon for returning users with existing files/subscription.</div>
+      <p class="task2-funnel-label">Header CTA flow after change</p>
+      <div class="task2-funnel task2-funnel--entry task2-funnel--entry-last" aria-label="Proposed header entry flow">
+        <span class="task2-funnel__step">Header "Upload file"</span>
+        <span class="task2-funnel__arrow">→</span>
+        <span class="task2-funnel__step task2-funnel__step--skipped">Sign up</span>
+        <span class="task2-funnel__arrow task2-funnel__arrow--muted">→</span>
+        <span class="task2-funnel__step task2-funnel__step--skipped">Empty dashboard</span>
+        <span class="task2-funnel__arrow task2-funnel__arrow--muted">→</span>
+        <span class="task2-funnel__step task2-funnel__step--skipped">Upload again</span>
+        <span class="task2-funnel__arrow task2-funnel__arrow--muted">→</span>
+        <span class="task2-funnel__step task2-funnel__step--current">Editor</span>
+        <span class="task2-funnel__arrow">→</span>
+        <span class="task2-funnel__step">Download</span>
+        <span class="task2-funnel__arrow">→</span>
+        <span class="task2-funnel__step">Auth</span>
+        <span class="task2-funnel__arrow">→</span>
+        <span class="task2-funnel__step">Paywall</span>
+      </div>
       </div>
 
-      <div class="task2__callout">
-        <strong>Expected impact:</strong> higher activation rate (file uploaded → editor opened), fewer users hitting empty dashboard, more high-intent traffic reaching paywall.
+      <div class="task2-stage">
+      <div class="task2-mockup-block task2-mockup-block--header">
+        <p class="task2-mockup__caption">Current</p>
+        <div class="task2-mockup">
+          <div class="task2-mockup__header">
+            <a href="#" class="task2-mockup__logo" tabindex="-1" aria-hidden="true">
+              <img src="../assets/logo.svg" alt="" width="120" height="32">
+            </a>
+            <div class="task2-mockup__nav" aria-hidden="true">
+              <span>Edit text</span>
+              <span>Merge</span>
+              <span>Sign</span>
+              <span>Convert</span>
+              <span>More</span>
+            </div>
+            <div class="task2-mockup__actions">
+              <span class="task2-mockup__lang">EN</span>
+              <span class="task2-mockup__login">Login</span>
+              <span class="task2-mockup__cta-old">Get started</span>
+            </div>
+          </div>
+        </div>
+        <p class="task2-mockup__footnote">Header CTA leads to signup → empty dashboard. Competes with hero upload.</p>
+      </div>
+
+      <div class="task2-mockup-block task2-mockup-block--header">
+        <div class="task2-mockup__meta">
+          <p class="task2-mockup__caption">Proposed</p>
+          <label class="mock-annot-toggle">
+            <input type="checkbox" id="header-annotations-toggle" checked data-annot-target="header-annot-wrap">
+            <span class="mock-annot-toggle__track" aria-hidden="true"></span>
+            <span class="mock-annot-toggle__label">Show change annotations</span>
+          </label>
+        </div>
+        <div class="task2-mockup task2-mockup--annot">
+          <div class="mock-annot-wrap mock-annot-wrap--on mock-annot-wrap--header" id="header-annot-wrap">
+            <div class="mock-annot-stage mock-annot-stage--header">
+              <div class="task2-mockup__header">
+                <a href="#" class="task2-mockup__logo" tabindex="-1" aria-hidden="true">
+                  <img src="../assets/logo.svg" alt="" width="120" height="32">
+                </a>
+                <div class="task2-mockup__nav" aria-hidden="true">
+                  <span>Edit text</span>
+                  <span>Merge</span>
+                  <span>Sign</span>
+                  <span>Convert</span>
+                  <span>More</span>
+                </div>
+                <div class="task2-mockup__actions">
+                  <span class="task2-mockup__lang">EN</span>
+                  <button type="button" class="task2-mockup__account" aria-label="Log in to your account">
+                    <svg class="icon" aria-hidden="true"><use href="#user-circle"></use></svg>
+                  </button>
+                  <button type="button" class="task2-mockup__cta-new">
+                    <svg aria-hidden="true"><use href="#cloud-arrow-up"></use></svg>
+                    Upload file
+                  </button>
+                </div>
+              </div>
+              <aside class="mock-annot-col mock-annot-col--header" aria-label="Change annotations">
+                <div class="mock-annot">
+                  <span class="mock-annot__dot" aria-hidden="true"></span>
+                  <span class="mock-annot__text">Account icon for returning users with files or subscription</span>
+                </div>
+                <div class="mock-annot mock-annot--header-upload">
+                  <span class="mock-annot__dot" aria-hidden="true"></span>
+                  <span class="mock-annot__text">Upload file, same primary action as hero</span>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </div>
+        <p class="task2-mockup__footnote">Same flow as hero. Account icon for returning users with existing files/subscription.</p>
+      </div>
+      </div>
+
+      <div class="task2-prose">
+      <p>
+        Higher activation rate (file uploaded → editor opened), fewer users hitting empty dashboard, more high-intent traffic reaching paywall.
+      </p>
       </div>
     </section>
 
     <!-- Change 2 -->
     <section class="task2__section">
+      <div class="task2-prose">
       <span class="task2__section-num">2</span>
       <h2 class="task2__section-title">Paywall pricing redesign</h2>
       <p>
-        Pricing appears at download — peak intent, but the current layout creates confusion and distrust. Below: production paywall recreated from screenshots, then the proposed version with targeted improvements.
+        Pricing appears at download, when intent is highest. Two approaches to test: simplified plan selection, or skipping it entirely and going straight to payment.
       </p>
-
-      <div class="task2-mockup task2-mockup--paywall">
-        <div class="task2-mockup__label">Current — production paywall</div>
-        <div class="paywall" aria-label="Current paywall mockup">
-          <div class="paywall__top">
-            <a href="#" class="paywall__logo" tabindex="-1" aria-hidden="true">
-              <img src="../assets/logo.svg" alt="" width="100" height="28">
-            </a>
-            <div class="paywall__steps" aria-hidden="true">
-              <div class="paywall__step paywall__step--active">
-                <span class="paywall__step-num">1</span>
-                <span>Choose a plan</span>
-              </div>
-              <span class="paywall__step-line"></span>
-              <div class="paywall__step">
-                <span class="paywall__step-num">2</span>
-                <span>Add payment details</span>
-              </div>
-              <span class="paywall__step-line"></span>
-              <div class="paywall__step">
-                <span class="paywall__step-num">3</span>
-                <span>Download PDF</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="paywall__body">
-            <div class="paywall__left">
-              <h3 class="paywall__title">Select a plan to download your document</h3>
-              <div class="paywall__preview">
-                <p class="paywall__ready">
-                  <svg aria-hidden="true"><use href="#check-circle"></use></svg>
-                  Your document is ready
-                </p>
-                <div class="paywall__doc">
-                  <img src="../assets/task2/doc-preview.png" alt="Document preview: Water Kefir Recipe" width="400" height="280">
-                </div>
-              </div>
-            </div>
-
-            <div class="paywall__right">
-              <button type="button" class="paywall__cta">Continue →</button>
-
-              <div class="paywall__plans">
-                <div class="paywall__plan">
-                  <div class="paywall__plan-main">
-                    <span class="paywall__plan-radio" aria-hidden="true"></span>
-                    <span class="paywall__plan-name">14-day limited access</span>
-                  </div>
-                  <div class="paywall__plan-side">
-                    <span class="paywall__plan-price">$0.95</span>
-                  </div>
-                </div>
-
-                <div class="paywall__plan paywall__plan--selected">
-                  <div class="paywall__plan-main">
-                    <span class="paywall__plan-radio" aria-hidden="true"></span>
-                    <span class="paywall__plan-name">14-day full access</span>
-                  </div>
-                  <div class="paywall__plan-side">
-                    <span class="paywall__badge paywall__badge--popular">Most popular</span>
-                    <span class="paywall__plan-price">$1.95</span>
-                  </div>
-                </div>
-
-                <div class="paywall__plan">
-                  <div class="paywall__plan-main">
-                    <span class="paywall__plan-radio" aria-hidden="true"></span>
-                    <span class="paywall__plan-name">Annual</span>
-                  </div>
-                  <div class="paywall__plan-side">
-                    <span class="paywall__badge paywall__badge--value">Best value</span>
-                    <span class="paywall__plan-price">$24.95 per month</span>
-                  </div>
-                </div>
-              </div>
-
-              <ul class="paywall__features">
-                <li>
-                  <svg aria-hidden="true"><use href="#check"></use></svg>
-                  Unlimited, natural conversations with any PDF
-                </li>
-                <li>
-                  <svg aria-hidden="true"><use href="#check"></use></svg>
-                  Chat with large documents
-                </li>
-                <li>
-                  <svg aria-hidden="true"><use href="#check"></use></svg>
-                  Extract insights 10x faster than manual reading
-                </li>
-                <li>
-                  <svg aria-hidden="true"><use href="#check"></use></svg>
-                  Unlimited downloads
-                </li>
-                <li>
-                  <svg aria-hidden="true"><use href="#check"></use></svg>
-                  Access all pdf.net features: sign, merge, convert, compress, etc...
-                </li>
-                <li>
-                  <svg aria-hidden="true"><use href="#check"></use></svg>
-                  Unlimited files
-                </li>
-                <li>
-                  <svg aria-hidden="true"><use href="#check"></use></svg>
-                  Store your PDFs securely in one place
-                </li>
-                <li>
-                  <svg aria-hidden="true"><use href="#check"></use></svg>
-                  Add 10 team members or family to your plan
-                </li>
-              </ul>
-
-              <p class="paywall__fineprint">After 14 days, auto-renews $49.88 billed monthly. You may cancel anytime.</p>
-            </div>
-          </div>
-
-          <div class="paywall__trust">
-            <p>
-              <svg aria-hidden="true"><use href="#laurel-left"></use></svg>
-              People all over the world trust
-              <svg aria-hidden="true"><use href="#laurel-right"></use></svg>
-            </p>
-          </div>
-        </div>
-        <div class="task2-mockup__note">CTA above plans · 3 confusing tiers · renewal hidden in fine print · generic AI features</div>
       </div>
 
-      <div class="task2-mockup__arrow" aria-hidden="true">↓</div>
+      <div class="task2-stage">
+      <div class="task2-mockup-block task2-mockup-block--paywall">
+        <div class="task2-mockup__meta">
+          <p class="task2-mockup__caption">Variant A: two plans on paywall</p>
+          <label class="mock-annot-toggle">
+            <input type="checkbox" id="paywall-annotations-toggle" checked data-annot-target="paywall-annot-wrap">
+            <span class="mock-annot-toggle__track" aria-hidden="true"></span>
+            <span class="mock-annot-toggle__label">Show change annotations</span>
+          </label>
+        </div>
+        <div class="task2-mockup task2-mockup--paywall task2-mockup--annot">
+          <div class="mock-annot-wrap mock-annot-wrap--on" id="paywall-annot-wrap">
+            <div class="mock-annot-stage mock-annot-stage--paywall">
+              <aside class="mock-annot-col mock-annot-col--left" aria-label="Change annotations">
+                <div class="mock-annot mock-annot--headline">
+                  <span class="mock-annot__dot" aria-hidden="true"></span>
+                  <span class="mock-annot__text">Document-focused headline and filename, ties paywall to the user's file</span>
+                </div>
+                <div class="mock-annot mock-annot--preview">
+                  <span class="mock-annot__dot" aria-hidden="true"></span>
+                  <span class="mock-annot__text">Compact A4 preview confirms the file is ready</span>
+                </div>
+              </aside>
 
-      <div class="task2-mockup task2-mockup--paywall">
-        <div class="task2-mockup__label task2-mockup__label--after">Proposed — improved paywall</div>
-        <div class="paywall paywall--proposed" aria-label="Proposed paywall mockup">
-          <div class="paywall__top">
-            <a href="#" class="paywall__logo" tabindex="-1" aria-hidden="true">
-              <img src="../assets/logo.svg" alt="" width="100" height="28">
-            </a>
-            <div class="paywall__steps" aria-hidden="true">
-              <div class="paywall__step paywall__step--active">
-                <span class="paywall__step-num">1</span>
-                <span>Download</span>
-              </div>
-              <span class="paywall__step-line"></span>
-              <div class="paywall__step">
-                <span class="paywall__step-num">2</span>
-                <span>Payment</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="paywall__body">
-            <div class="paywall__left">
-              <h3 class="paywall__title">Download your document</h3>
-              <p class="paywall__filename">Рецепт водяного кефира.pdf</p>
-              <div class="paywall__preview">
-                <p class="paywall__ready">
-                  <svg aria-hidden="true"><use href="#check-circle"></use></svg>
-                  Your document is ready
-                </p>
-                <div class="paywall__doc">
-                  <img src="../assets/task2/doc-preview.png" alt="Document preview: Water Kefir Recipe" width="400" height="280">
+          <div class="paywall paywall--proposed" aria-label="Variant A paywall">
+            <div class="paywall__top">
+              <a href="#" class="paywall__logo" tabindex="-1" aria-hidden="true">
+                <img src="../assets/logo.svg" alt="" width="120" height="32">
+              </a>
+              <div class="paywall__steps" aria-hidden="true">
+                <div class="paywall__step paywall__step--active">
+                  <span class="paywall__step-num">1</span>
+                  <span>Choose plan</span>
+                </div>
+                <span class="paywall__step-line"></span>
+                <div class="paywall__step">
+                  <span class="paywall__step-num">2</span>
+                  <span>Payment</span>
                 </div>
               </div>
             </div>
 
-            <div class="paywall__right">
-              <div class="paywall__offer-card">
-                <div class="paywall__offer-header">
-                  <span class="paywall__offer-name">14-day full access</span>
-                  <span class="paywall__offer-price">$0.95 <small>today</small></span>
+            <div class="paywall__body">
+              <div class="paywall__left">
+                <div class="paywall__intro">
+                  <h3 class="paywall__title">Download your document</h3>
+                  <p class="paywall__filename">Рецепт водяного кефира.pdf</p>
+                </div>
+                <div class="paywall__preview">
+                  <p class="paywall__ready">
+                    <svg aria-hidden="true"><use href="#check-circle"></use></svg>
+                    Your document is ready
+                  </p>
+                  <div class="paywall__doc">
+                    <div class="paywall__doc-page" aria-hidden="true">
+                      <span class="paywall__doc-line paywall__doc-line--wide"></span>
+                      <span class="paywall__doc-line"></span>
+                      <span class="paywall__doc-line"></span>
+                      <span class="paywall__doc-line paywall__doc-line--short"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="paywall__right">
+                <div class="paywall__plans paywall__plans--dual">
+                  <div class="paywall__plan paywall__plan--selected">
+                    <div class="paywall__plan-main">
+                      <span class="paywall__plan-radio" aria-hidden="true"></span>
+                      <div class="paywall__plan-text">
+                        <span class="paywall__plan-name">14-day full access</span>
+                        <span class="paywall__plan-sub">Then $9.99/month · cancel anytime</span>
+                      </div>
+                    </div>
+                    <div class="paywall__plan-side">
+                      <span class="paywall__plan-price">$0.95 <small>today</small></span>
+                    </div>
+                  </div>
+
+                  <div class="paywall__plan">
+                    <div class="paywall__plan-main">
+                      <span class="paywall__plan-radio" aria-hidden="true"></span>
+                      <div class="paywall__plan-text">
+                        <span class="paywall__plan-name">Annual</span>
+                        <span class="paywall__plan-sub">Billed once per year</span>
+                      </div>
+                    </div>
+                    <div class="paywall__plan-side">
+                      <span class="paywall__badge paywall__badge--value">Save 50%</span>
+                      <span class="paywall__plan-price">$59/year</span>
+                    </div>
+                  </div>
                 </div>
 
                 <ul class="paywall__features paywall__features--compact">
@@ -321,7 +317,7 @@
                   </li>
                   <li>
                     <svg aria-hidden="true"><use href="#check"></use></svg>
-                    Edit, sign, merge &amp; convert — all tools included
+                    Edit, sign, merge &amp; convert. All tools included.
                   </li>
                   <li>
                     <svg aria-hidden="true"><use href="#check"></use></svg>
@@ -329,59 +325,159 @@
                   </li>
                 </ul>
 
-                <p class="paywall__renewal--prominent">Then $9.99/month · cancel anytime</p>
+                <button type="button" class="paywall__cta paywall__cta--bottom">
+                  <svg width="18" height="18" aria-hidden="true"><use href="#arrow-down-tray"></use></svg>
+                  Download my PDF ($0.95)
+                </button>
+
+                <p class="paywall__fineprint">Secure payment · Cancel in 2 clicks from your account</p>
               </div>
-
-              <details class="paywall__compare">
-                <summary>Compare plans</summary>
-                <div class="paywall__plans">
-                  <div class="paywall__plan paywall__plan--compact">
-                    <div class="paywall__plan-main">
-                      <span class="paywall__plan-name">Monthly</span>
-                    </div>
-                    <span class="paywall__plan-price">$9.99/mo</span>
-                  </div>
-                  <div class="paywall__plan paywall__plan--compact">
-                    <div class="paywall__plan-main">
-                      <span class="paywall__plan-name">Annual</span>
-                      <span class="paywall__badge paywall__badge--value">Save 50%</span>
-                    </div>
-                    <span class="paywall__plan-price">$59/year</span>
-                  </div>
-                </div>
-              </details>
-
-              <button type="button" class="paywall__cta paywall__cta--bottom">
-                <svg width="18" height="18" aria-hidden="true"><use href="#arrow-down-tray"></use></svg>
-                Download my PDF — $0.95
-              </button>
-
-              <p class="paywall__fineprint">Secure payment · Cancel in 2 clicks from your account</p>
             </div>
           </div>
 
-          <div class="paywall__trust">
-            <p>
-              <svg aria-hidden="true"><use href="#laurel-left"></use></svg>
-              People all over the world trust
-              <svg aria-hidden="true"><use href="#laurel-right"></use></svg>
-            </p>
+              <aside class="mock-annot-col mock-annot-col--right" aria-label="Change annotations">
+                <div class="mock-annot mock-annot--steps">
+                  <span class="mock-annot__dot" aria-hidden="true"></span>
+                  <span class="mock-annot__text">2-step checkout instead of 3 screens</span>
+                </div>
+                <div class="mock-annot mock-annot--plans">
+                  <span class="mock-annot__dot" aria-hidden="true"></span>
+                  <span class="mock-annot__text">Two plans only: trial default and annual for long-term users</span>
+                </div>
+                <div class="mock-annot mock-annot--renewal">
+                  <span class="mock-annot__dot" aria-hidden="true"></span>
+                  <span class="mock-annot__text">Renewal price on the plan card, not buried in fine print</span>
+                </div>
+                <div class="mock-annot mock-annot--features">
+                  <span class="mock-annot__dot" aria-hidden="true"></span>
+                  <span class="mock-annot__text">3 task-focused benefits instead of 8 generic AI bullets</span>
+                </div>
+                <div class="mock-annot mock-annot--cta">
+                  <span class="mock-annot__dot" aria-hidden="true"></span>
+                  <span class="mock-annot__text">Action-oriented CTA with price, placed after plan choice</span>
+                </div>
+              </aside>
+            </div>
           </div>
         </div>
+        <p class="task2-mockup__footnote">Trial for new users, annual for price-sensitive visitors who already know they need the tool long-term.</p>
+      </div>
+      </div>
 
-        <div class="paywall__changes">
-          <div class="paywall__change"><strong>Single offer</strong> — no limited vs full confusion</div>
-          <div class="paywall__change"><strong>CTA after choice</strong> — action-oriented copy</div>
-          <div class="paywall__change"><strong>Renewal visible</strong> — not buried in fine print</div>
-          <div class="paywall__change"><strong>3 task-focused features</strong> — not 8 generic AI bullets</div>
+      <div class="task2-prose">
+        <p class="task2-mockup__caption">Variant B: payment step (no plan selection)</p>
+        <p class="task2-variant-intro">
+          With one default plan there is nothing to choose. We skip the plan screen and send users straight to payment, removing one step at peak intent.
+        </p>
+        <p class="task2-variant-intro">
+          We accept that some upfront annual revenue is lost at checkout. Annual will be upsold later via trial-ending email, the cancel flow, and billing settings, when users already understand the product.
+        </p>
+
+        <div class="task2-funnel task2-funnel--checkout" aria-label="Variant B checkout funnel">
+          <span class="task2-funnel__step">Download click</span>
+          <span class="task2-funnel__arrow">→</span>
+          <span class="task2-funnel__step task2-funnel__step--skipped">Choose plan</span>
+          <span class="task2-funnel__arrow task2-funnel__arrow--muted">→</span>
+          <span class="task2-funnel__step task2-funnel__step--current">Payment</span>
+          <span class="task2-funnel__arrow">→</span>
+          <span class="task2-funnel__step">Download PDF</span>
         </div>
+      </div>
+
+      <div class="task2-stage">
+      <div class="task2-mockup-block task2-mockup-block--paywall">
+        <div class="task2-mockup task2-mockup--paywall">
+          <div class="checkout" aria-label="Variant B checkout">
+            <div class="checkout__top">
+              <a href="#" class="checkout__logo" tabindex="-1" aria-hidden="true">
+                <img src="../assets/logo.svg" alt="" width="120" height="32">
+              </a>
+              <div class="checkout__steps" aria-hidden="true">
+                <div class="checkout__step checkout__step--active">
+                  <span class="checkout__step-num">1</span>
+                  <span>Add payment details</span>
+                </div>
+                <span class="checkout__step-line"></span>
+                <div class="checkout__step">
+                  <span class="checkout__step-num">2</span>
+                  <span>Download PDF</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="checkout__body">
+              <div class="checkout__summary">
+                <div class="checkout-receipt">
+                  <h3 class="checkout-receipt__title">Summary</h3>
+                  <div class="checkout-receipt__row">
+                    <div>
+                      <p class="checkout-receipt__plan">14-day full access</p>
+                    </div>
+                    <div class="checkout-receipt__price-col">
+                      <span class="checkout-receipt__price">$0.95</span>
+                      <span class="checkout-receipt__tax">Tax may apply</span>
+                    </div>
+                  </div>
+                  <p class="checkout-receipt__user">Denis, cartapeband@gmail.com</p>
+                  <p class="checkout-receipt__renewal">After 14 days, auto-renews $9.99 billed monthly. You may cancel anytime.</p>
+                  <div class="checkout-receipt__zigzag" aria-hidden="true"></div>
+                </div>
+                <p class="checkout__legal">$0.95 trial, then $9.99/mo until cancelled.</p>
+              </div>
+
+              <div class="checkout__payment">
+                <div class="checkout-card">
+                  <h3 class="checkout-card__title">Pay with card</h3>
+                  <label class="checkout-field">
+                    <span class="checkout-field__label">Card number</span>
+                    <span class="checkout-field__input checkout-field__input--card">
+                      <span class="checkout-field__placeholder">1234 1234 1234 1234</span>
+                      <span class="checkout-field__brands" aria-hidden="true">VISA MC AMEX</span>
+                    </span>
+                  </label>
+                  <div class="checkout-field__row">
+                    <label class="checkout-field">
+                      <span class="checkout-field__label">Expiration date</span>
+                      <span class="checkout-field__input">MM / YY</span>
+                    </label>
+                    <label class="checkout-field">
+                      <span class="checkout-field__label">Security code</span>
+                      <span class="checkout-field__input">123</span>
+                    </label>
+                    <label class="checkout-field">
+                      <span class="checkout-field__label">Postal code</span>
+                      <span class="checkout-field__input">12345</span>
+                    </label>
+                  </div>
+                  <label class="checkout-consent">
+                    <span class="checkout-consent__box" aria-hidden="true"></span>
+                    <span>I agree to <a href="#">Billing terms</a>, <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a>, including automatic renewal.</span>
+                  </label>
+                  <button type="button" class="checkout-card__submit">Subscribe</button>
+                  <p class="checkout-card__secure">
+                    <svg width="14" height="14" aria-hidden="true"><use href="#lock-closed"></use></svg>
+                    Payments are secure and encrypted
+                  </p>
+                </div>
+
+                <div class="checkout-divider"><span>Or</span></div>
+
+                <button type="button" class="checkout-alt checkout-alt--paypal">Pay with PayPal</button>
+                <button type="button" class="checkout-alt checkout-alt--gpay">Buy with G Pay</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="task2-mockup__footnote">A/B test against Variant A on checkout completion and trial-to-paid rate.</p>
+      </div>
       </div>
     </section>
 
     <!-- Measurement -->
     <section class="task2__section">
+      <div class="task2-prose">
       <h2 class="task2__section-title">How to measure success</h2>
-      <p><strong>Primary metric</strong> — paywall → purchase conversion:</p>
+      <p><strong>Primary metric:</strong> paywall → purchase conversion</p>
       <table class="task2-metrics">
         <thead>
           <tr>
@@ -404,7 +500,7 @@
           </tr>
           <tr>
             <td>Chargeback / refund rate</td>
-            <td>Guardrail — transparent pricing shouldn't increase disputes</td>
+            <td>Guardrail: transparent pricing should not increase disputes</td>
           </tr>
           <tr>
             <td>Trial → D30 retention</td>
@@ -413,8 +509,9 @@
         </tbody>
       </table>
 
-      <div class="task2__callout task2__callout--muted">
+      <p>
         Run A/B on paywall for ~2 weeks, min ~1000 paywall views per variant. Segment by entry path (header vs hero).
+      </p>
       </div>
     </section>
   </main>
@@ -441,12 +538,25 @@
     <symbol id="arrow-down-tray" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
       <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"/>
     </symbol>
-    <symbol id="laurel-left" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 4c-1 2-3 3.5-5 4.5.5 1.5 1.5 3 3 4-1 .5-2 1.5-2.5 2.5 2-.5 4-1.5 5.5-3C14 13.5 15 15 16 16.5c-2-1-3.5-2.5-4-5 2-1 3.5-2.5 4-4.5-1.5.5-3 1-4 2.5z" opacity="0.5"/>
-    </symbol>
-    <symbol id="laurel-right" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 4c1 2 3 3.5 5 4.5-.5 1.5-1.5 3-3 4 1 .5 2 1.5 2.5 2.5-2-.5-4-1.5-5.5-3C10 13.5 9 15 8 16.5c2-1 3.5-2.5 4-5-2-1-3.5-2.5-4-4.5 1.5.5 3 1 4 2.5z" opacity="0.5"/>
+    <symbol id="lock-closed" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"/>
     </symbol>
   </svg>
+
+  <script>
+    (function () {
+      document.querySelectorAll('.mock-annot-toggle input[data-annot-target]').forEach(function (toggle) {
+        var wrap = document.getElementById(toggle.getAttribute('data-annot-target'));
+        if (!wrap) return;
+
+        function sync() {
+          wrap.classList.toggle('mock-annot-wrap--on', toggle.checked);
+        }
+
+        toggle.addEventListener('change', sync);
+        sync();
+      });
+    })();
+  </script>
 </body>
 </html>
