@@ -131,6 +131,10 @@ body:has(.task3) {
   color: var(--color-text-muted);
 }
 
+.task3__callout--muted strong {
+  color: var(--color-text);
+}
+
 .task3-mockup-block {
   margin-top: var(--t3-space-lg);
 }
@@ -140,12 +144,10 @@ body:has(.task3) {
 }
 
 .task3-mockup__caption {
+  margin: 0 0 var(--t3-space-xs);
   font-size: 13px;
-  font-weight: 600;
-  color: var(--color-text-muted);
-  margin-bottom: var(--t3-space-xs);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  font-weight: 500;
+  color: #9ca3af;
 }
 
 .task3-mockup__meta {
@@ -154,10 +156,11 @@ body:has(.task3) {
   justify-content: space-between;
   gap: 16px;
   margin-bottom: var(--t3-space-xs);
+  width: 100%;
 }
 
 .task3-mockup__meta .task3-mockup__caption {
-  margin-bottom: 0;
+  margin: 0;
 }
 
 .task3-mockup {
@@ -187,22 +190,34 @@ body:has(.task3) {
   flex-wrap: wrap;
   align-items: center;
   gap: 8px;
-  margin-top: var(--t3-space-md);
-  padding: 16px 20px;
-  background: #f7f7f5;
-  border-radius: 10px;
-  font-size: 13px;
+  margin: 0;
+  font-size: 14px;
   font-weight: 500;
 }
 
-.task3__section > .task3-funnel,
 .task3-prose > .task3-funnel {
-  max-width: 100%;
+  margin-bottom: var(--t3-space-md);
+}
+
+.task3-mockup__caption + .task3-funnel {
+  margin-top: 0;
+}
+
+.task3-prose .task3-mockup__caption {
+  margin-bottom: var(--t3-space-sm);
+}
+
+.task3-prose p + .task3-mockup__caption {
+  margin-top: var(--t3-space-md);
+}
+
+.task3-prose .task3-funnel + .task3-mockup__caption {
+  margin-top: var(--t3-space-md);
 }
 
 .task3-funnel__step {
   padding: 6px 12px;
-  background: #fff;
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 999px;
   white-space: nowrap;
@@ -231,15 +246,6 @@ body:has(.task3) {
 
 .task3-funnel__arrow--muted {
   opacity: 0.35;
-}
-
-.task3-funnel-label {
-  margin-top: var(--t3-space-md);
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--color-text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
 }
 
 /* Screenshot grid */
@@ -352,6 +358,49 @@ body:has(.task3) {
 }
 
 .task3-metrics td {
+  color: var(--color-text-muted);
+}
+
+.task3-audit {
+  width: 100%;
+  margin-top: var(--t3-space-md);
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.task3-prose .task3-audit {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.task3-audit th,
+.task3-audit td {
+  padding: 12px 14px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--color-border);
+  line-height: 1.5;
+}
+
+.task3-audit th {
+  font-weight: 600;
+  background: #f1f1ef;
+  white-space: nowrap;
+}
+
+.task3-audit td {
+  color: var(--color-text);
+}
+
+.task3-audit td:first-child {
+  font-weight: 500;
+}
+
+.task3-audit-note {
+  margin-top: var(--t3-space-sm);
+  font-size: 14px;
+  line-height: 1.55;
   color: var(--color-text-muted);
 }
 
@@ -495,7 +544,343 @@ body:has(.task3) {
   background: #d1d5db;
 }
 
-/* Proposed sign-mode mockup */
+/* Proposed signature modal mockup */
+
+.sign-modal {
+  font-family: var(--font-sans);
+  padding: 24px 28px 28px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  color: #111827;
+}
+
+.sign-modal__title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.sign-modal__body {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 24px;
+}
+
+.sign-modal__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sign-modal__tab {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+}
+
+.sign-modal__tab--active {
+  background: #eef2ff;
+  border-color: #c7d2fe;
+}
+
+.sign-modal__tab-name {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.sign-modal__tab-desc {
+  display: block;
+  font-size: 11px;
+  line-height: 1.4;
+  color: #6b7280;
+}
+
+.sign-modal__main {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sign-modal__name-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sign-modal__name-row .sign-modal__input {
+  flex: 1;
+  min-width: 0;
+}
+
+.sign-modal__field-wrap {
+  position: relative;
+}
+
+.sign-modal__input {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+}
+
+.sign-modal__colors {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.sign-modal__swatch {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #111827;
+  border: 2px solid transparent;
+}
+
+.sign-modal__swatch:nth-child(2) { background: #1e3a8a; }
+.sign-modal__swatch:nth-child(3) { background: #2563eb; }
+.sign-modal__swatch:nth-child(4) { background: #dc2626; }
+.sign-modal__swatch:nth-child(5) { background: #15803d; }
+.sign-modal__swatch:nth-child(6) { background: #7c3aed; }
+
+.sign-modal__swatch--gradient {
+  background: conic-gradient(from 180deg, #ff6b6b, #ffd93d, #6bcb77, #4d96ff, #a855f7, #ff6b6b);
+}
+
+.sign-modal__swatch--active {
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #4F4CF0;
+}
+
+.sign-modal__fonts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.sign-modal__font {
+  padding: 10px 6px;
+  font-size: 12px;
+  text-align: center;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  color: #374151;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+.sign-modal__font--young {
+  font-family: "Young Serif", Georgia, serif;
+  font-style: italic;
+}
+
+.sign-modal__font--dancing {
+  font-family: "Dancing Script", cursive;
+  font-size: 15px;
+}
+
+.sign-modal__font--vibes {
+  font-family: "Great Vibes", cursive;
+  font-size: 17px;
+}
+
+.sign-modal__font--pacifico {
+  font-family: "Pacifico", cursive;
+  font-size: 13px;
+}
+
+.sign-modal__font--allura {
+  font-family: "Allura", cursive;
+  font-size: 18px;
+}
+
+.sign-modal__font--sacramento {
+  font-family: "Sacramento", cursive;
+  font-size: 17px;
+}
+
+.sign-modal__font--alex {
+  font-family: "Alex Brush", cursive;
+  font-size: 17px;
+}
+
+.sign-modal__font--satisfy {
+  font-family: "Satisfy", cursive;
+  font-size: 14px;
+}
+
+.sign-modal__font--cedarville {
+  font-family: "Cedarville Cursive", cursive;
+  font-size: 14px;
+}
+
+.sign-modal__font--parisienne {
+  font-family: "Parisienne", cursive;
+  font-size: 16px;
+}
+
+.sign-modal__font--marck {
+  font-family: "Marck Script", cursive;
+  font-size: 15px;
+}
+
+.sign-modal__font--tangerine {
+  font-family: "Tangerine", cursive;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.sign-modal__font--kaushan {
+  font-family: "Kaushan Script", cursive;
+  font-size: 14px;
+}
+
+.sign-modal__font--rouge {
+  font-family: "Rouge Script", cursive;
+  font-size: 18px;
+}
+
+.sign-modal__font--bilbo {
+  font-family: "Bilbo Swash Caps", cursive;
+  font-size: 16px;
+}
+
+.sign-modal__font--mrdafoe {
+  font-family: "Mr Dafoe", cursive;
+  font-size: 17px;
+}
+
+.sign-modal__font--active {
+  border-color: #4F4CF0;
+  background: #fafafe;
+}
+
+.sign-modal__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 4px;
+}
+
+.sign-modal__save {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.sign-modal__checkbox {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #4F4CF0;
+  border-radius: 4px;
+  background: #4F4CF0;
+  flex-shrink: 0;
+}
+
+.sign-modal__checkbox::after {
+  content: "";
+  width: 4px;
+  height: 8px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.sign-modal__cta-wrap {
+  position: relative;
+}
+
+.sign-modal__cta {
+  padding: 10px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  background: #4F4CF0;
+  border: none;
+  border-radius: 10px;
+}
+
+.sign-modal__popover {
+  position: absolute;
+  z-index: 2;
+  max-width: 240px;
+  padding: 12px 14px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: #fff;
+  background: #1f2937;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.sign-modal__popover p {
+  margin: 0;
+}
+
+.sign-modal__popover-meta {
+  display: block;
+  margin-top: 8px;
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+.sign-modal__popover-btn {
+  margin-top: 10px;
+  padding: 6px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+  background: #4F4CF0;
+  border: none;
+  border-radius: 6px;
+}
+
+.sign-modal__popover--field {
+  top: calc(100% + 10px);
+  left: 0;
+}
+
+.sign-modal__popover--field::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 24px;
+  width: 12px;
+  height: 12px;
+  background: #1f2937;
+  transform: rotate(45deg);
+}
+
+.sign-modal__popover--cta {
+  right: 0;
+  bottom: calc(100% + 10px);
+}
+
+.sign-modal__popover--cta::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  right: 28px;
+  width: 12px;
+  height: 12px;
+  background: #1f2937;
+  transform: rotate(45deg);
+}
+
+/* Download completion nudge mockup */
 
 .sign-editor {
   font-family: var(--font-sans);
@@ -558,6 +943,25 @@ body:has(.task3) {
 .sign-editor__download svg {
   width: 16px;
   height: 16px;
+}
+
+.sign-editor--compact {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.sign-editor--compact .sign-editor__top {
+  position: relative;
+}
+
+.sign-editor__canvas-wrap--compact {
+  padding: 20px;
+  background: #f3f4f6;
+}
+
+.sign-editor__page--compact {
+  max-width: 280px;
 }
 
 .sign-editor__toolbar {
@@ -786,12 +1190,11 @@ body:has(.task3) {
     gap: 6px;
   }
 
-  .sign-editor__body {
+  .sign-modal__body {
     grid-template-columns: 1fr;
   }
 
-  .sign-editor__panel {
-    border-left: none;
-    border-top: 1px solid #e5e7eb;
+  .sign-modal__fonts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

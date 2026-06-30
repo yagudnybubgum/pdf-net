@@ -7,7 +7,7 @@
   <link rel="icon" href="../fav.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Young+Serif&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Allura&family=Bilbo+Swash+Caps&family=Cedarville+Cursive&family=Dancing+Script&family=Great+Vibes&family=Inter:wght@400;500;600&family=Kaushan+Script&family=Marck+Script&family=Mr+Dafoe&family=Pacifico&family=Parisienne&family=Rouge+Script&family=Sacramento&family=Satisfy&family=Tangerine:wght@400;700&family=Young+Serif&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/task3.css">
 </head>
@@ -15,385 +15,330 @@
   <nav class="site-nav" aria-label="Site">
     <div class="site-nav__track">
       <ul class="site-nav__links">
-        <li><a href="../">Variant 1</a></li>
-        <li><a href="../task1_2/">Variant 2</a></li>
+        <li><a href="../">Home</a></li>
         <li><a href="../task1/">Task 1</a></li>
         <li><a href="../task2/">Task 2</a></li>
         <li><a href="./" aria-current="page">Task 3</a></li>
+        <li><a href="../variant1/">V1</a></li>
+        <li><a href="../task1_2/">V2</a></li>
       </ul>
     </div>
   </nav>
 
   <main class="task3">
     <div class="task3-prose">
-      <h1 class="task3__title">Audit and improve onboarding: sign flow</h1>
+      <h1 class="task3__title">Onboarding audit: sign flow</h1>
       <p class="task3__lead">
-        Funnel: task-specific landing → editor → step-by-step popovers → download → paywall.
-        I audited the signing journey end-to-end and redesigned the in-product onboarding where activation leaks hardest.
+        I walked through pdf.net's sign onboarding (landing → editor → popovers → download) without analytics access.
+        This is a <strong>heuristic audit</strong> from screenshots and one live session, not a conversion analysis.
       </p>
     </div>
 
-    <!-- Context -->
+    <!-- Thesis -->
     <section class="task3__section">
       <div class="task3-prose">
-        <h2 class="task3__section-title">Why sign flow</h2>
+        <h2 class="task3__section-title">Main finding</h2>
         <p>
-          I tested two intent flows on pdf.net: <strong>sign</strong> and <strong>annotate</strong>.
-          Both share the same structural problem: tours teach UI, not job completion. Sign has sharper conversion damage:
+          The tour is built for <strong>tour completion</strong>, not <strong>signature placed</strong>.
         </p>
-        <ul>
-          <li>Tour step 3 points to a <strong>disabled</strong> "Place in PDF" button</li>
-          <li>Copy conflict: popover says "initials", field says "full name"</li>
-          <li>Full-screen modal hides the document users came to sign</li>
-          <li>Direct continuation of <a href="../task1/">Task 1</a> signing-intent landing</li>
-        </ul>
         <p>
-          Task 2 fixes paywall → purchase. This task fixes the leak <em>before</em> download:
-          visitors who never place a signature never reach peak-intent paywall.
+          Evidence I can point to: step 3 highlights "Place in PDF" while the button is disabled (screenshot below).
+          Step 1 has a "Next" button that does not require typing a name.
+          The tour can finish without the user placing a signature.
         </p>
-
-        <div class="task3-funnel" aria-label="Sign onboarding funnel">
-          <span class="task3-funnel__step">Sign landing</span>
-          <span class="task3-funnel__arrow">→</span>
-          <span class="task3-funnel__step">Upload</span>
-          <span class="task3-funnel__arrow">→</span>
-          <span class="task3-funnel__step">Editor</span>
-          <span class="task3-funnel__arrow">→</span>
-          <span class="task3-funnel__step task3-funnel__step--weak">Signature modal + tour</span>
-          <span class="task3-funnel__arrow">→</span>
-          <span class="task3-funnel__step">Place signature</span>
-          <span class="task3-funnel__arrow">→</span>
-          <span class="task3-funnel__step">Download</span>
-          <span class="task3-funnel__arrow">→</span>
-          <span class="task3-funnel__step">Paywall</span>
-        </div>
+        <p>
+          I <em>hypothesize</em> this hurts activation, but I have not seen funnel data.
+          The fixes below are small, testable, and scoped to onboarding behavior only (popover copy, step order, when hints appear).
+        </p>
       </div>
     </section>
 
-    <!-- Audit -->
+    <!-- Observations -->
     <section class="task3__section">
       <div class="task3-prose">
-        <h2 class="task3__section-title">Current onboarding: what hurts conversion</h2>
-        <p>
-          <strong>Core issue:</strong> tour completion ≠ task completion.
-          Users can click through all 3 steps without creating or placing a signature.
-          The tour explains the product; it does not guide users to value.
-        </p>
-
-        <div class="task3-issues">
-          <div class="task3-issues__row">
-            <div class="task3-issues__step">Step 1/3: name field</div>
-            <div class="task3-issues__problem">Popover: "Type your <em>initials</em>". Placeholder: "Enter <em>full name</em>". Next works without typing.</div>
-          </div>
-          <div class="task3-issues__row">
-            <div class="task3-issues__step">Step 2/3: Type / Draw / Upload</div>
-            <div class="task3-issues__problem">Teaches 3 signature methods + 12 fonts before first value. Choice paralysis on a time-sensitive task.</div>
-          </div>
-          <div class="task3-issues__row">
-            <div class="task3-issues__step">Step 3/3: Place in PDF</div>
-            <div class="task3-issues__problem">Popover tells user to click CTA that is <em>disabled</em> until name is entered. Dead end.</div>
-          </div>
-          <div class="task3-issues__row">
-            <div class="task3-issues__step">After placement</div>
-            <div class="task3-issues__problem">"All done? Download" fires while signature is still selected. User may not feel finished; competes with repositioning.</div>
-          </div>
-          <div class="task3-issues__row">
-            <div class="task3-issues__step">Editor chrome</div>
-            <div class="task3-issues__problem">14 tools visible (Merge, Ask AI, etc.) for a user who came to sign one file. Sign tool not auto-selected from sign landing.</div>
-          </div>
-        </div>
+        <h2 class="task3__section-title">What I observed</h2>
+        <p>Sign flow, production UI.</p>
       </div>
 
       <div class="task3-stage">
         <div class="task3-mockup-block">
-          <p class="task3-mockup__caption">Current flow, screenshots from production</p>
+          <p class="task3-mockup__caption">Screenshots from production</p>
           <div class="task3-screens">
             <figure class="task3-screen">
-              <img class="task3-screen__img" src="../assets/task3/tour-step-1.png" alt="Tour step 1: type initials popover on name field" width="800" height="450">
+              <img class="task3-screen__img" src="../assets/task3/tour-step-1.png" alt="Tour step 1" width="800" height="450">
               <figcaption class="task3-screen__label">
-                <strong>1 of 3: name field</strong>
-                Copy mismatch. Popover covers font previews. Next does not require input.
+                <strong>1 of 3</strong>
+                Popover: "initials". Placeholder: "full name".
               </figcaption>
             </figure>
             <figure class="task3-screen">
-              <img class="task3-screen__img" src="../assets/task3/tour-step-2.png" alt="Tour step 2: signature method tabs" width="800" height="450">
+              <img class="task3-screen__img" src="../assets/task3/tour-step-2.png" alt="Tour step 2" width="800" height="450">
               <figcaption class="task3-screen__label">
-                <strong>2 of 3: signature methods</strong>
-                Teaches Draw/Upload alternatives user did not ask for.
+                <strong>2 of 3</strong>
+                Tour step about Draw / Upload tabs.
               </figcaption>
             </figure>
             <figure class="task3-screen">
-              <img class="task3-screen__img" src="../assets/task3/tour-step-3.png" alt="Tour step 3: disabled Place in PDF button" width="800" height="450">
+              <img class="task3-screen__img" src="../assets/task3/tour-step-3.png" alt="Tour step 3" width="800" height="450">
               <figcaption class="task3-screen__label">
-                <strong>3 of 3: Place in PDF</strong>
-                Instruction points to disabled button. Tour ends without placing signature.
+                <strong>3 of 3</strong>
+                Popover points at disabled "Place in PDF".
               </figcaption>
             </figure>
             <figure class="task3-screen">
-              <img class="task3-screen__img" src="../assets/task3/tour-download.png" alt="Download popover after signature placed" width="800" height="450">
+              <img class="task3-screen__img" src="../assets/task3/tour-download.png" alt="Download popover" width="800" height="450">
               <figcaption class="task3-screen__label">
-                <strong>Post-place: Download popover</strong>
-                "All done?" too early. Signature still in edit mode.
+                <strong>After place</strong>
+                "All done? Download" while signature is still selected.
               </figcaption>
             </figure>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- Redesign 1 -->
-    <section class="task3__section">
       <div class="task3-prose">
-        <span class="task3__section-num">1</span>
-        <h2 class="task3__section-title">Sign mode entry</h2>
-        <p>
-          Visitors from sign-intent landing (<code>/sign</code> or <code>?intent=sign</code>) should land in <strong>sign mode</strong>, not a generic editor.
+        <table class="task3-audit">
+          <thead>
+            <tr>
+              <th>Observation</th>
+              <th>UX issue</th>
+              <th>Proposed fix</th>
+              <th>How to validate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Popover says "initials", field says "full name"</td>
+              <td>Inconsistent copy</td>
+              <td>Same wording in both places: "Enter your name"</td>
+              <td>No A/B needed. Ship as copy fix.</td>
+            </tr>
+            <tr>
+              <td>Step 3 spotlights disabled CTA</td>
+              <td>Instruction vs system state mismatch</td>
+              <td>Show step 2 only when "Place in PDF" is enabled</td>
+              <td><code>tour_step_2_viewed</code> should correlate with <code>place_clicked</code></td>
+            </tr>
+            <tr>
+              <td>"Next" on step 1 without typing</td>
+              <td>Tour progress ≠ user progress</td>
+              <td>Dismiss step 1 on input. No Next until field has text.</td>
+              <td><code>tour_completed</code> vs <code>signature_placed</code> gap should shrink</td>
+            </tr>
+            <tr>
+              <td>Step 2 tours Draw / Upload tabs</td>
+              <td>Teaches alternatives before first success</td>
+              <td>Drop this step. Tabs stay; tour ignores them on first sign.</td>
+              <td>Optional A/B: 3-step vs 2-step tour</td>
+            </tr>
+            <tr>
+              <td>Download popover right after place</td>
+              <td>Completion prompt during edit state</td>
+              <td>Show after user clicks away from signature <em>or</em> stops interacting for ~10s</td>
+              <td>A/B: immediate vs delayed nudge on <code>download_clicked</code></td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="task3-audit-note">
+          "~10s without interaction" = user placed the signature and then did nothing (no clicks, no drags) for about ten seconds.
+          Exact timing should come from session replay, not from this audit.
         </p>
-        <ul>
-          <li>Auto-activate Sign tool on editor open</li>
-          <li>Toolbar: <strong>Select · Sign · Download</strong>; everything else under "More tools"</li>
-          <li>No 3-step modal tour on first open</li>
-        </ul>
-        <p class="task3-funnel-label">Proposed entry</p>
-        <div class="task3-funnel" aria-label="Proposed sign entry">
-          <span class="task3-funnel__step">Sign landing</span>
-          <span class="task3-funnel__arrow">→</span>
-          <span class="task3-funnel__step">Upload</span>
-          <span class="task3-funnel__arrow">→</span>
-          <span class="task3-funnel__step task3-funnel__step--current">Editor in sign mode</span>
-          <span class="task3-funnel__arrow">→</span>
-          <span class="task3-funnel__step task3-funnel__step--skipped">14-tool toolbar</span>
-          <span class="task3-funnel__arrow task3-funnel__arrow--muted">→</span>
-          <span class="task3-funnel__step task3-funnel__step--skipped">3-step modal tour</span>
-        </div>
       </div>
     </section>
 
-    <!-- Redesign 2 -->
+    <!-- Proposal -->
     <section class="task3__section">
       <div class="task3-prose">
-        <span class="task3__section-num">2</span>
-        <h2 class="task3__section-title">Slim panel + click-to-place</h2>
-        <p>
-          Replace full-screen "Create your signature" modal with a right-side panel. Document stays visible so users see where the signature will go.
-        </p>
-        <ul>
-          <li>One default cursive font. "More styles" collapsed until user asks</li>
-          <li>Draw / Upload under "Other ways", not in onboarding path</li>
-          <li>After name entered: <strong>"Click on the document to place"</strong>, with crosshair on canvas</li>
-          <li>No "Place in PDF" button that can be disabled while tour says click it</li>
-        </ul>
+        <span class="task3__section-num">1</span>
+        <h2 class="task3__section-title">Proposed tour (same modal)</h2>
+        <p>Keep "Create your signature" as-is. Change the tour only.</p>
+
+        <p class="task3-mockup__caption">Today</p>
+        <div class="task3-funnel" aria-label="Current tour">
+          <span class="task3-funnel__step">1. Initials</span>
+          <span class="task3-funnel__arrow">→</span>
+          <span class="task3-funnel__step">2. Tabs</span>
+          <span class="task3-funnel__arrow">→</span>
+          <span class="task3-funnel__step">3. Place (disabled)</span>
+        </div>
+
+        <p class="task3-mockup__caption">Proposed</p>
+        <div class="task3-funnel" aria-label="Proposed tour">
+          <span class="task3-funnel__step task3-funnel__step--current">1. Enter name</span>
+          <span class="task3-funnel__arrow">→</span>
+          <span class="task3-funnel__step task3-funnel__step--skipped">Tabs step</span>
+          <span class="task3-funnel__arrow task3-funnel__arrow--muted">→</span>
+          <span class="task3-funnel__step task3-funnel__step--current">2. Place (when enabled)</span>
+        </div>
       </div>
 
       <div class="task3-stage">
         <div class="task3-mockup-block">
           <div class="task3-mockup__meta">
-            <p class="task3-mockup__caption">Proposed: sign mode with side panel</p>
+            <p class="task3-mockup__caption">Wireframe: step 2 of proposed tour</p>
             <label class="mock-annot-toggle">
               <input type="checkbox" id="sign-annotations-toggle" checked data-annot-target="sign-annot-wrap">
               <span class="mock-annot-toggle__track" aria-hidden="true"></span>
-              <span class="mock-annot-toggle__label">Show change annotations</span>
+              <span class="mock-annot-toggle__label">Show annotations</span>
             </label>
           </div>
           <div class="task3-mockup task3-mockup--annot">
             <div class="mock-annot-wrap mock-annot-wrap--on" id="sign-annot-wrap">
               <div class="mock-annot-stage mock-annot-stage--sign">
-                <aside class="mock-annot-col mock-annot-col--left" aria-label="Change annotations">
+                <aside class="mock-annot-col mock-annot-col--left" aria-label="Annotations">
                   <div class="mock-annot">
                     <span class="mock-annot__dot" aria-hidden="true"></span>
-                    <span class="mock-annot__text">Sign-focused toolbar. User does not hunt for Sign among 14 tools</span>
-                  </div>
-                  <div class="mock-annot">
-                    <span class="mock-annot__dot" aria-hidden="true"></span>
-                    <span class="mock-annot__text">Document stays visible. User sees placement context on contracts</span>
+                    <span class="mock-annot__text">Step 1 (earlier): hint on empty name field, goes away when user types</span>
                   </div>
                 </aside>
 
-                <div class="sign-editor" aria-label="Proposed sign mode editor">
-                  <div class="sign-editor__top">
-                    <div class="sign-editor__brand">
-                      <img src="../assets/logo.svg" alt="" width="96" height="24">
-                      <span class="sign-editor__filename">contract.pdf</span>
-                    </div>
-                    <div class="sign-editor__actions">
-                      <button type="button" class="sign-editor__download" tabindex="-1">
-                        <svg aria-hidden="true"><use href="#arrow-down-tray"></use></svg>
-                        Download
-                      </button>
-                    </div>
-                    <div class="sign-editor__coach" aria-hidden="true">
-                      <p class="sign-editor__coach-title">Download your signed file</p>
-                      <p>Shown after signature placed + 8s idle or deselect</p>
-                      <button type="button" class="sign-editor__coach-btn" tabindex="-1">Got it</button>
-                    </div>
-                  </div>
+                <div class="sign-modal" aria-label="Proposed signature modal">
+                  <h3 class="sign-modal__title">Create your signature</h3>
+                  <div class="sign-modal__body">
+                    <nav class="sign-modal__nav" aria-hidden="true">
+                      <div class="sign-modal__tab sign-modal__tab--active">
+                        <span class="sign-modal__tab-name">Type</span>
+                        <span class="sign-modal__tab-desc">Enter your name and create a signature with ready-made font.</span>
+                      </div>
+                      <div class="sign-modal__tab">
+                        <span class="sign-modal__tab-name">Draw</span>
+                        <span class="sign-modal__tab-desc">Handwrite your signature using mouse or trackpad.</span>
+                      </div>
+                      <div class="sign-modal__tab">
+                        <span class="sign-modal__tab-name">Upload</span>
+                        <span class="sign-modal__tab-desc">Use signature image from your device.</span>
+                      </div>
+                    </nav>
 
-                  <div class="sign-editor__toolbar" aria-hidden="true">
-                    <span class="sign-editor__tool">Select</span>
-                    <span class="sign-editor__tool sign-editor__tool--active">Sign</span>
-                    <span class="sign-editor__tool sign-editor__tool--muted">Text</span>
-                    <span class="sign-editor__tool sign-editor__tool--muted">Draw</span>
-                    <span class="sign-editor__more">More tools…</span>
-                  </div>
-
-                  <div class="sign-editor__body">
-                    <div class="sign-editor__canvas-wrap">
-                      <div class="sign-editor__page">
-                        <img class="sign-editor__page-photo" src="../assets/task3/tour-download.png" alt="" width="360" height="480">
-                        <span class="sign-editor__signature">Anna Smith</span>
-                        <div class="sign-editor__place-hint">
-                          <span>Click to place signature</span>
+                    <div class="sign-modal__main">
+                      <div class="sign-modal__name-row">
+                        <input class="sign-modal__input" type="text" value="Anna Smith" readonly tabindex="-1" aria-label="Name">
+                        <div class="sign-modal__colors" aria-hidden="true">
+                          <span class="sign-modal__swatch sign-modal__swatch--active"></span>
+                          <span class="sign-modal__swatch"></span>
+                          <span class="sign-modal__swatch"></span>
+                          <span class="sign-modal__swatch"></span>
+                          <span class="sign-modal__swatch"></span>
+                          <span class="sign-modal__swatch"></span>
+                          <span class="sign-modal__swatch sign-modal__swatch--gradient"></span>
+                        </div>
+                      </div>
+                      <div class="sign-modal__fonts" aria-hidden="true">
+                        <span class="sign-modal__font sign-modal__font--active sign-modal__font--young">Anna Smith</span>
+                        <span class="sign-modal__font sign-modal__font--dancing">Anna Smith</span>
+                        <span class="sign-modal__font sign-modal__font--vibes">Anna Smith</span>
+                        <span class="sign-modal__font sign-modal__font--pacifico">Anna Smith</span>
+                        <span class="sign-modal__font sign-modal__font--allura">Anna Smith</span>
+                        <span class="sign-modal__font sign-modal__font--sacramento">Anna Smith</span>
+                        <span class="sign-modal__font sign-modal__font--alex">Anna Smith</span>
+                        <span class="sign-modal__font sign-modal__font--satisfy">Anna Smith</span>
+                        <span class="sign-modal__font sign-modal__font--cedarville">Anna Smith</span>
+                        <span class="sign-modal__font sign-modal__font--parisienne">Anna Smith</span>
+                        <span class="sign-modal__font sign-modal__font--marck">Anna Smith</span>
+                        <span class="sign-modal__font sign-modal__font--tangerine">Anna Smith</span>
+                        <span class="sign-modal__font sign-modal__font--kaushan">Anna Smith</span>
+                        <span class="sign-modal__font sign-modal__font--rouge">Anna Smith</span>
+                        <span class="sign-modal__font sign-modal__font--bilbo">Anna Smith</span>
+                        <span class="sign-modal__font sign-modal__font--mrdafoe">Anna Smith</span>
+                      </div>
+                      <div class="sign-modal__footer">
+                        <label class="sign-modal__save" aria-hidden="true">
+                          <span class="sign-modal__checkbox"></span>
+                          Save for future use
+                        </label>
+                        <div class="sign-modal__cta-wrap">
+                          <button type="button" class="sign-modal__cta" tabindex="-1">Place in PDF</button>
+                          <div class="sign-modal__popover sign-modal__popover--cta" aria-hidden="true">
+                            <p>Click to add your signature to the page.</p>
+                            <span class="sign-modal__popover-meta">2 of 2</span>
+                            <button type="button" class="sign-modal__popover-btn" tabindex="-1">Got it</button>
+                          </div>
                         </div>
                       </div>
                     </div>
-
-                    <aside class="sign-editor__panel">
-                      <h3 class="sign-editor__panel-title">Add signature</h3>
-                      <div>
-                        <label class="sign-editor__field-label" for="sign-name-mock">Name on document</label>
-                        <input class="sign-editor__input" id="sign-name-mock" type="text" value="Anna Smith" readonly tabindex="-1">
-                      </div>
-                      <div class="sign-editor__preview" aria-hidden="true">Anna Smith</div>
-                      <p class="sign-editor__styles"><a href="#" tabindex="-1">More styles</a> · Draw · Upload</p>
-                      <button type="button" class="sign-editor__cta" tabindex="-1">Click document to place</button>
-                    </aside>
                   </div>
                 </div>
 
-                <aside class="mock-annot-col mock-annot-col--right" aria-label="Change annotations">
+                <aside class="mock-annot-col mock-annot-col--right" aria-label="Annotations">
                   <div class="mock-annot">
                     <span class="mock-annot__dot" aria-hidden="true"></span>
-                    <span class="mock-annot__text">Slim panel replaces blocking modal. One font default, alternatives de-emphasized</span>
-                  </div>
-                  <div class="mock-annot">
-                    <span class="mock-annot__dot" aria-hidden="true"></span>
-                    <span class="mock-annot__text">Placement = click on document. No disabled primary CTA</span>
-                  </div>
-                  <div class="mock-annot">
-                    <span class="mock-annot__dot" aria-hidden="true"></span>
-                    <span class="mock-annot__text">Download coach mark only after value delivered, not during edit</span>
+                    <span class="mock-annot__text">Popover only appears when the button is clickable</span>
                   </div>
                 </aside>
               </div>
             </div>
           </div>
-          <p class="task3-mockup__footnote">Wireframe mockup. Production would use real editor chrome and intent routing from sign landing.</p>
         </div>
       </div>
     </section>
 
-    <!-- Redesign 3 -->
+  <!-- Download nudge -->
     <section class="task3__section">
       <div class="task3-prose">
-        <span class="task3__section-num">3</span>
-        <h2 class="task3__section-title">Action-gated coach marks (not a linear tour)</h2>
+        <span class="task3__section-num">2</span>
+        <h2 class="task3__section-title">Download hint: wait until editing is done</h2>
         <p>
-          Replace the 3-step popover slideshow with <strong>max 2 contextual hints</strong>, each gated on user action:
+          After placing a signature, the product shows "All done? Download" while the signature is still selected (resize handles visible).
+          That reads like "you're finished" when the UI still says "you're editing."
         </p>
-        <div class="task3-issues">
-          <div class="task3-issues__row">
-            <div class="task3-issues__step">Hint 1: panel open, field empty</div>
-            <div class="task3-issues__problem">"Enter your name as it should appear on the document." Show once. No Next button; dismiss on input.</div>
-          </div>
-          <div class="task3-issues__row">
-            <div class="task3-issues__step">Hint 2: name entered, not placed</div>
-            <div class="task3-issues__problem">"Click on the document to place your signature." Spotlight on canvas. Advance only after placement.</div>
-          </div>
-          <div class="task3-issues__row">
-            <div class="task3-issues__step">Hint 3: placed + idle</div>
-            <div class="task3-issues__problem">Download spotlight after signature placed AND (8–12s idle OR deselect). Copy: "Download your signed file · contract.pdf"</div>
-          </div>
-        </div>
-
-        <p><strong>Remove entirely:</strong></p>
+        <p><strong>Proposed trigger</strong> (either condition is enough):</p>
         <ul>
-          <li>Tour step about Type / Draw / Upload tabs</li>
-          <li>"Skip tour" on a 2-hint flow</li>
-          <li>"All done?" before user finishes positioning</li>
+          <li>User clicks outside the signature (deselects it), or</li>
+          <li>User does nothing for ~10 seconds after placing (no clicks, no drags)</li>
         </ul>
-
-        <div class="task3__callout">
-          <strong>Cross-cutting pattern (annotate flow):</strong>
-          The annotate tour ends on Undo (step 2/2) with no post-action nudge.
-          Same fix applies: after first annotation stroke, idle-triggered Download spotlight.
-          Sign flow is the primary case; completion nudge is a shared onboarding primitive.
-        </div>
+        <p>
+          Copy: "Download your signed file · contract.pdf" instead of "All done?"
+        </p>
       </div>
     </section>
 
-    <!-- Principles -->
+    <!-- Instrumentation -->
     <section class="task3__section">
       <div class="task3-prose">
-        <h2 class="task3__section-title">Design principles</h2>
-        <ul>
-          <li><strong>Job, not UI:</strong> onboarding steps map to sign → place → download, not modal tabs</li>
-          <li><strong>Gated progression:</strong> next hint only after previous action completed</li>
-          <li><strong>Context preserved:</strong> document visible during signature setup</li>
-          <li><strong>One happy path:</strong> default font + type; alternatives available but not taught</li>
-          <li><strong>Completion at peak intent:</strong> download nudge after value, before paywall</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Measurement -->
-    <section class="task3__section">
-      <div class="task3-prose">
-        <h2 class="task3__section-title">How to measure success</h2>
-        <p><strong>Primary metric:</strong> <code>sign_tool_opened → signature_placed</code></p>
+        <h2 class="task3__section-title">What I would instrument first</h2>
+        <p>I do not know which issue is largest without data. These events would tell us where to start:</p>
         <table class="task3-metrics">
           <thead>
             <tr>
-              <th>Metric</th>
-              <th>What it tells us</th>
+              <th>Event / ratio</th>
+              <th>Question it answers</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><code>uploaded → signature_placed</code></td>
-              <td>End-to-end activation for sign-intent visitors</td>
+              <td><code>tour_completed → signature_placed</code></td>
+              <td>Is the tour lying about success?</td>
             </tr>
             <tr>
-              <td><code>tour_step_3_viewed → signature_placed</code></td>
-              <td>Current tour fails if high views, low placement</td>
+              <td><code>sign_modal_opened → signature_placed</code></td>
+              <td>Overall modal onboarding drop-off</td>
+            </tr>
+            <tr>
+              <td><code>tour_step_3_viewed</code> where CTA disabled</td>
+              <td>How often users hit the dead-end step (should be zero after fix)</td>
             </tr>
             <tr>
               <td><code>signature_placed → download_clicked</code></td>
-              <td>Completion nudge timing (idle vs immediate)</td>
-            </tr>
-            <tr>
-              <td>Median time to signature placed</td>
-              <td>Target &lt; 60s from editor open for sign intent</td>
-            </tr>
-            <tr>
-              <td><code>signature_placed → paywall_view</code></td>
-              <td>More qualified traffic to Task 2 paywall</td>
+              <td>Does delayed Download hint help or hurt?</td>
             </tr>
           </tbody>
         </table>
         <p>
-          A/B: control (current 3-step modal tour) vs variant (sign mode + panel + gated hints).
-          Segment by entry: sign landing vs generic homepage. Min ~500 sign-intent sessions per variant.
+          <strong>Suggested test order:</strong> (1) copy fix, (2) never spotlight disabled CTA, (3) drop tabs tour step.
+          Download timing is a separate A/B once modal tour is fixed.
         </p>
       </div>
     </section>
   </main>
-
-  <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
-    <symbol id="arrow-down-tray" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"/>
-    </symbol>
-  </svg>
 
   <script>
     (function () {
       document.querySelectorAll('.mock-annot-toggle input[data-annot-target]').forEach(function (toggle) {
         var wrap = document.getElementById(toggle.getAttribute('data-annot-target'));
         if (!wrap) return;
-
         function sync() {
           wrap.classList.toggle('mock-annot-wrap--on', toggle.checked);
         }
-
         toggle.addEventListener('change', sync);
         sync();
       });

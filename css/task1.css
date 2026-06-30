@@ -67,6 +67,10 @@ body:has(.task1) {
   margin-bottom: var(--t1-space-md);
 }
 
+.task1-prose h2.task1__section-title:not(:first-child) {
+  margin-top: var(--t1-space-lg);
+}
+
 .task1-prose p,
 .task1-prose li {
   font-size: 16px;
@@ -91,6 +95,26 @@ body:has(.task1) {
   margin-top: var(--t1-space-sm);
   padding-left: 20px;
   list-style: disc;
+}
+
+.task1-prose ol,
+.task1-hypotheses {
+  margin-top: var(--t1-space-sm);
+  padding-left: 20px;
+  list-style: decimal;
+}
+
+.task1-prose .task1__section-title + ol,
+.task1-prose h2 + ol {
+  margin-top: 0;
+}
+
+.task1-hypotheses li em {
+  display: block;
+  margin-top: 6px;
+  font-size: 14px;
+  color: var(--color-text-muted);
+  font-style: normal;
 }
 
 .task1-prose li + li {
