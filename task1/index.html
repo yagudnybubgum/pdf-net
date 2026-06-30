@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 1: Intent-matched hero | pdf.net</title>
+  <link rel="icon" href="../fav.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Young+Serif&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/task1.css">
+</head>
+<body>
+  <nav class="site-nav" aria-label="Site">
+    <div class="site-nav__track">
+      <ul class="site-nav__links">
+        <li><a href="../">Home</a></li>
+        <li><a href="./" aria-current="page">Task 1</a></li>
+        <li><a href="../task2/">Task 2</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="task1">
+    <div class="task1-prose">
+      <h1 class="task1__title">Intent-matched hero for contract signing</h1>
+      <p class="task1__lead">
+        New users land on pdf.net from different sources with different jobs. Pick one intent, then design an above-the-fold hero that speaks to that job, not a generic "PDF editor".
+      </p>
+    </div>
+
+    <!-- Audience -->
+    <section class="task1__section">
+      <div class="task1-prose">
+        <h2 class="task1__section-title">Audience picked</h2>
+        <p>
+          I picked the <strong>blog post about signing contracts</strong>. The visitor already has a PDF, knows what they need, and is time-sensitive. They did not come to explore 20 tools. They came to sign and return the file.
+        </p>
+      </div>
+    </section>
+
+    <!-- Proposed hero -->
+    <section class="task1__section">
+      <div class="task1-prose">
+        <h2 class="task1__section-title">Proposed hero: sign contracts</h2>
+        <p>
+          Mirror the visitor's language and outcome. Headline names the job. Subtitle promises speed. CTA says "sign". The visual shows a signature being placed, so they see the end state before uploading.
+        </p>
+      </div>
+
+      <div class="task1-stage">
+        <div class="task1-mockup-block task1-mockup-block--hero">
+          <div class="task1-mockup__meta">
+            <p class="task1-mockup__caption">Proposed: signing-intent hero</p>
+            <label class="mock-annot-toggle">
+              <input type="checkbox" id="hero-annotations-toggle" checked data-annot-target="hero-annot-wrap">
+              <span class="mock-annot-toggle__track" aria-hidden="true"></span>
+              <span class="mock-annot-toggle__label">Show change annotations</span>
+            </label>
+          </div>
+          <div class="task1-mockup task1-mockup--annot">
+            <div class="mock-annot-wrap mock-annot-wrap--on" id="hero-annot-wrap">
+              <div class="mock-annot-stage mock-annot-stage--hero">
+                <aside class="mock-annot-col mock-annot-col--left" aria-label="Change annotations">
+                  <div class="mock-annot mock-annot--headline">
+                    <span class="mock-annot__dot" aria-hidden="true"></span>
+                    <span class="mock-annot__text">Headline names the job they came for: "sign contracts", not "edit PDF"</span>
+                  </div>
+                  <div class="mock-annot mock-annot--subtitle">
+                    <span class="mock-annot__dot" aria-hidden="true"></span>
+                    <span class="mock-annot__text">Subtitle promises outcome and speed: upload → sign → send back in minutes</span>
+                  </div>
+                </aside>
+
+                <div class="task1-mockup__screen task1-mockup__screen--live">
+                  <div class="task1-hero-live-wrap">
+                    <div class="task1-hero-live-scaler">
+                      <iframe
+                        class="task1-hero-live"
+                        src="../?embed=hero"
+                        title="Signing-intent homepage hero"
+                        tabindex="-1"
+                        scrolling="no"
+                      ></iframe>
+                    </div>
+                  </div>
+                </div>
+
+                <aside class="mock-annot-col mock-annot-col--right" aria-label="Change annotations">
+                  <div class="mock-annot mock-annot--visual">
+                    <span class="mock-annot__dot" aria-hidden="true"></span>
+                    <span class="mock-annot__text">Mini editor preview shows signature on the document. Visitor sees the outcome before uploading</span>
+                  </div>
+                  <div class="mock-annot mock-annot--cta">
+                    <span class="mock-annot__dot" aria-hidden="true"></span>
+                    <span class="mock-annot__text">CTA names the action: "Choose PDF to sign", not generic "Choose file"</span>
+                  </div>
+                  <div class="mock-annot mock-annot--privacy">
+                    <span class="mock-annot__dot" aria-hidden="true"></span>
+                    <span class="mock-annot__text">Privacy line reduces anxiety for sensitive contracts</span>
+                  </div>
+                </aside>
+              </div>
+            </div>
+          </div>
+          <p class="task1-mockup__footnote">Live homepage above the fold. Animation runs in the embed. <a href="../">Open full page</a>.</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Design principles -->
+    <section class="task1__section">
+      <div class="task1-prose">
+        <h2 class="task1__section-title">Design principles applied</h2>
+        <ul>
+          <li><strong>Reduce hero noise:</strong> stripped secondary UI and competing CTAs so the signing message and one job-specific action ("Choose PDF to sign") stay in focus</li>
+          <li><strong>Speak their words:</strong> headline uses "sign" and "contracts", the language from the blog post and search query</li>
+          <li><strong>Show the outcome:</strong> animated hero demonstrates signing, not an empty upload box</li>
+          <li><strong>Reduce risk:</strong> "Files stay private" eases contract-signing anxiety</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Measurement -->
+    <section class="task1__section">
+      <div class="task1-prose">
+        <h2 class="task1__section-title">How to measure success</h2>
+        <p><strong>Primary metric:</strong> landing → file uploaded (hero CTA or dropzone)</p>
+        <table class="task1-metrics">
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>What it tells us</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>landing_view → file_uploaded</code></td>
+              <td>Does intent-matched copy lift activation vs generic hero?</td>
+            </tr>
+            <tr>
+              <td><code>landing_view → bounce</code></td>
+              <td>Do signing visitors leave faster when message matches?</td>
+            </tr>
+            <tr>
+              <td><code>hero_cta_click → editor_opened</code></td>
+              <td>CTA clarity: clicks that actually start the tool</td>
+            </tr>
+            <tr>
+              <td><code>uploaded → first_sign_action</code></td>
+              <td>Visitors who came to sign actually sign (intent quality)</td>
+            </tr>
+            <tr>
+              <td>Time to first upload</td>
+              <td>Outcome-focused copy should reduce hesitation</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          Run as a dedicated landing page (<code>/sign-contract</code>) or A/B on blog traffic. Segment by referrer: blog post vs organic vs paid. Min ~500 sessions per variant before reading conversion.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      var iframe = document.querySelector('.task1-hero-live');
+      var liveWrap = document.querySelector('.task1-hero-live-wrap');
+      var scaler = document.querySelector('.task1-hero-live-scaler');
+      var DESIGN_WIDTH = 1440;
+
+      function measureEmbedHeight(doc) {
+        var selectors = '.header, .hero, [data-flow-editor], .hero-flow__upload, .hero-flow__privacy';
+        var maxBottom = 0;
+
+        doc.querySelectorAll(selectors).forEach(function (node) {
+          maxBottom = Math.max(maxBottom, node.getBoundingClientRect().bottom);
+        });
+
+        var scrollHeight = doc.documentElement.scrollHeight;
+        return Math.ceil(Math.max(maxBottom + 12, scrollHeight));
+      }
+
+      function syncHeroEmbed() {
+        if (!iframe || !liveWrap || !scaler) return;
+
+        try {
+          var doc = iframe.contentDocument;
+          if (!doc || !doc.body) return;
+
+          var height = measureEmbedHeight(doc);
+          var containerWidth = liveWrap.getBoundingClientRect().width;
+          if (!containerWidth) return;
+
+          var scale = containerWidth / DESIGN_WIDTH;
+
+          iframe.style.width = DESIGN_WIDTH + 'px';
+          iframe.style.height = height + 'px';
+          scaler.style.width = DESIGN_WIDTH + 'px';
+          scaler.style.height = height + 'px';
+          scaler.style.transform = 'scale(' + scale + ')';
+          liveWrap.style.height = Math.ceil(height * scale) + 'px';
+        } catch (e) {}
+      }
+
+      document.querySelectorAll('.mock-annot-toggle input[data-annot-target]').forEach(function (toggle) {
+        var wrap = document.getElementById(toggle.getAttribute('data-annot-target'));
+        if (!wrap) return;
+
+        function sync() {
+          wrap.classList.toggle('mock-annot-wrap--on', toggle.checked);
+          window.requestAnimationFrame(syncHeroEmbed);
+          window.setTimeout(syncHeroEmbed, 80);
+        }
+
+        toggle.addEventListener('change', sync);
+        sync();
+      });
+
+      if (iframe) {
+        iframe.addEventListener('load', function () {
+          syncHeroEmbed();
+          window.setTimeout(syncHeroEmbed, 100);
+          window.setTimeout(syncHeroEmbed, 400);
+          window.setTimeout(syncHeroEmbed, 1000);
+        });
+      }
+
+      if (liveWrap && window.ResizeObserver) {
+        new ResizeObserver(syncHeroEmbed).observe(liveWrap);
+      }
+
+      window.addEventListener('resize', syncHeroEmbed);
+    })();
+  </script>
+</body>
+</html>

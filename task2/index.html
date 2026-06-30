@@ -12,14 +12,18 @@
   <link rel="stylesheet" href="../css/task2.css">
 </head>
 <body>
+  <nav class="site-nav" aria-label="Site">
+    <div class="site-nav__track">
+      <ul class="site-nav__links">
+        <li><a href="../">Home</a></li>
+        <li><a href="../task1/">Task 1</a></li>
+        <li><a href="./" aria-current="page">Task 2</a></li>
+      </ul>
+    </div>
+  </nav>
+
   <main class="task2">
     <div class="task2-prose">
-    <a href="../" class="task2__back">
-      <svg class="icon icon--sm" aria-hidden="true"><use href="#arrow-left"></use></svg>
-      Back to landing
-    </a>
-
-    <p class="task2__label">Task 2</p>
     <h1 class="task2__title">Fix the weakest funnel step</h1>
     <p class="task2__lead">
       Funnel: landing → sign up → first tool use → paywall → purchase.
@@ -523,9 +527,6 @@
   </main>
 
   <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
-    <symbol id="arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"/>
-    </symbol>
     <symbol id="chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
       <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/>
     </symbol>

@@ -1,0 +1,408 @@
+/* Task 1 — intent-matched hero page */
+
+body:has(.task1) {
+  background: #fff;
+}
+
+.task1 {
+  --t1-prose-width: 42rem;
+  --t1-stage-width: 1080px;
+  --t1-space-2xs: 10px;
+  --t1-space-xs: 14px;
+  --t1-space-sm: 20px;
+  --t1-space-md: 28px;
+  --t1-space-lg: 40px;
+  --t1-space-xl: 56px;
+  --t1-space-2xl: 72px;
+
+  max-width: var(--t1-stage-width);
+  margin: 0 auto;
+  padding: 32px 24px 96px;
+  overflow-x: visible;
+}
+
+.task1-prose {
+  max-width: var(--t1-prose-width);
+  margin-inline: auto;
+  width: 100%;
+}
+
+.task1-stage {
+  width: 100%;
+  max-width: 100%;
+}
+
+.task1-prose + .task1-stage,
+.task1-stage + .task1-prose {
+  margin-top: var(--t1-space-xl);
+}
+
+.task1-stage .task1-mockup-block:first-child {
+  margin-top: 0;
+}
+
+.task1__title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 400;
+  line-height: 1.15;
+  margin-bottom: var(--t1-space-sm);
+}
+
+.task1__lead {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  margin-bottom: var(--t1-space-xl);
+}
+
+.task1__section {
+  margin-bottom: var(--t1-space-2xl);
+}
+
+.task1__section-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: var(--t1-space-md);
+}
+
+.task1-prose p,
+.task1-prose li {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--color-text);
+}
+
+.task1-prose p + p {
+  margin-top: var(--t1-space-sm);
+}
+
+.task1-prose ul + p,
+.task1-prose p + ul {
+  margin-top: var(--t1-space-md);
+}
+
+.task1-prose table + p {
+  margin-top: var(--t1-space-md);
+}
+
+.task1-prose ul {
+  margin-top: var(--t1-space-sm);
+  padding-left: 20px;
+  list-style: disc;
+}
+
+.task1-prose li + li {
+  margin-top: var(--t1-space-2xs);
+}
+
+.task1-prose li strong {
+  font-weight: 600;
+}
+
+.task1__callout {
+  margin-top: var(--t1-space-md);
+  padding: 16px 20px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Mockup blocks */
+
+.task1-mockup-block {
+  margin-top: var(--t1-space-lg);
+}
+
+.task1-mockup-block + .task1-mockup-block {
+  margin-top: var(--t1-space-lg);
+}
+
+.task1-mockup-block--hero {
+  overflow: visible;
+}
+
+.task1-mockup__caption {
+  margin: 0 0 var(--t1-space-xs);
+  font-size: 13px;
+  font-weight: 500;
+  color: #9ca3af;
+}
+
+.task1-mockup__meta .task1-mockup__caption {
+  margin: 0;
+}
+
+.task1-mockup__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: var(--t1-space-xs);
+  width: 100%;
+}
+
+.task1-mockup {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #F7F7F7;
+  box-shadow: var(--shadow-sm);
+}
+
+.task1-mockup--annot {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.task1-mockup--annot .task1-mockup__screen {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.task1-mockup__footnote {
+  margin: var(--t1-space-xs) 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #9ca3af;
+}
+
+.task1-mockup__footnote a {
+  color: #4F4CF0;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Live homepage embed (1440px desktop viewport, scaled to fit) */
+
+.task1-mockup__screen--live {
+  overflow: hidden;
+  background: #F7F7F7;
+}
+
+.task1-hero-live-wrap {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background: #F7F7F7;
+}
+
+.task1-hero-live-scaler {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: top left;
+  will-change: transform;
+}
+
+.task1-hero-live {
+  display: block;
+  width: 1440px;
+  border: none;
+  background: #F7F7F7;
+  pointer-events: none;
+  vertical-align: top;
+}
+
+/* Metrics */
+
+.task1-metrics {
+  width: 100%;
+  margin-top: var(--t1-space-md);
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.task1-prose .task1-metrics {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.task1-metrics th,
+.task1-metrics td {
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.task1-metrics th {
+  font-weight: 600;
+  background: #f1f1ef;
+}
+
+.task1-metrics td {
+  color: var(--color-text-muted);
+}
+
+/* Annotations */
+
+.mock-annot-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.mock-annot-toggle input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.mock-annot-toggle__track {
+  position: relative;
+  width: 40px;
+  height: 22px;
+  background: #d1d5db;
+  border-radius: 999px;
+  transition: background 0.2s ease;
+}
+
+.mock-annot-toggle__track::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+}
+
+.mock-annot-toggle input:checked + .mock-annot-toggle__track {
+  background: #9ca3af;
+}
+
+.mock-annot-toggle input:checked + .mock-annot-toggle__track::after {
+  transform: translateX(18px);
+}
+
+.mock-annot-toggle__label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #9ca3af;
+}
+
+.mock-annot-wrap {
+  overflow: visible;
+}
+
+.mock-annot-stage--hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+}
+
+.mock-annot-wrap--on .mock-annot-stage--hero {
+  grid-template-columns: 168px minmax(0, 1fr) 168px;
+  gap: 20px;
+  width: calc(100% + 376px);
+  margin-left: -188px;
+}
+
+.mock-annot-col {
+  display: none;
+}
+
+.mock-annot-wrap--on .mock-annot-col {
+  display: block;
+}
+
+.mock-annot-col--left {
+  padding-top: 108px;
+}
+
+.mock-annot-col--right {
+  padding-top: 48px;
+}
+
+.mock-annot {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+  line-height: 1.45;
+  font-weight: 500;
+  color: #9ca3af;
+}
+
+.mock-annot-col--left .mock-annot {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.mock-annot-col--left .mock-annot + .mock-annot {
+  margin-top: 48px;
+}
+
+.mock-annot-col--right .mock-annot + .mock-annot {
+  margin-top: 20px;
+}
+
+.mock-annot--cta {
+  margin-top: 28px;
+}
+
+.mock-annot--privacy {
+  margin-top: 16px;
+}
+
+.mock-annot__dot {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #9ca3af;
+  flex-shrink: 0;
+  margin-top: 4px;
+  box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.2);
+}
+
+.mock-annot-col--left .mock-annot__dot::after {
+  content: "";
+  position: absolute;
+  left: calc(100% + 4px);
+  top: 50%;
+  width: 20px;
+  height: 1px;
+  background: #d1d5db;
+}
+
+.mock-annot-col--right .mock-annot__dot::before {
+  content: "";
+  position: absolute;
+  right: calc(100% + 4px);
+  top: 50%;
+  width: 20px;
+  height: 1px;
+  background: #d1d5db;
+}
+
+.mock-annot-stage--hero > .task1-mockup__screen {
+  min-width: 0;
+}
+
+@media (max-width: 1200px) {
+  .mock-annot-wrap--on .mock-annot-stage--hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .mock-annot-wrap--on .mock-annot-col {
+    display: none;
+  }
+}

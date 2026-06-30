@@ -9,8 +9,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Young+Serif&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <script>document.documentElement.classList.toggle('embed-hero', new URLSearchParams(location.search).has('embed'));</script>
 </head>
 <body>
+  <nav class="site-nav" aria-label="Site">
+    <div class="site-nav__track">
+      <ul class="site-nav__links">
+        <li><a href="./" aria-current="page">Home</a></li>
+        <li><a href="task1/">Task 1</a></li>
+        <li><a href="task2/">Task 2</a></li>
+      </ul>
+    </div>
+  </nav>
+
   <header class="header" id="header">
     <div class="header__inner">
       <a href="/" class="header__logo" aria-label="pdf.net home">

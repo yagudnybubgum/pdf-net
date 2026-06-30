@@ -17,7 +17,7 @@ body:has(.task2) {
 
   max-width: var(--t2-stage-width);
   margin: 0 auto;
-  padding: 48px 24px 96px;
+  padding: 32px 24px 96px;
   overflow-x: visible;
 }
 
@@ -39,31 +39,6 @@ body:has(.task2) {
 
 .task2-stage .task2-mockup-block:first-child {
   margin-top: 0;
-}
-
-.task2__back {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--color-text-muted);
-  margin-bottom: 32px;
-  transition: color var(--transition);
-}
-
-.task2__back:hover {
-  color: var(--color-text);
-}
-
-.task2__label {
-  display: inline-block;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: #4F4CF0;
-  margin-bottom: 12px;
 }
 
 .task2__title {
