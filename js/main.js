@@ -171,12 +171,22 @@
 
     setSignaturePath('contract');
 
+    function getIconBase() {
+      const ref = document.querySelector('[data-flow-file] img, .hero-flow__file img');
+      const src = ref?.getAttribute('src');
+      if (src && src.includes('/')) {
+        return src.slice(0, src.lastIndexOf('/') + 1);
+      }
+      return 'assets/icons/';
+    }
+
+    const iconBase = getIconBase();
     const icons = {
-      pdf: 'assets/icons/pdf.svg',
-      docx: 'assets/icons/docx.svg',
-      jpeg: 'assets/icons/jpeg.svg',
-      xlsx: 'assets/icons/xlsx.svg',
-      csv: 'assets/icons/csv.svg',
+      pdf: `${iconBase}pdf.svg`,
+      docx: `${iconBase}docx.svg`,
+      jpeg: `${iconBase}jpeg.svg`,
+      xlsx: `${iconBase}xlsx.svg`,
+      csv: `${iconBase}csv.svg`,
     };
 
     const scenarios = [
