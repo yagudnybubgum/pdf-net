@@ -359,6 +359,18 @@ body:has(.task1) {
   margin-top: 16px;
 }
 
+.mock-annot-wrap--v2 .mock-annot-col--left {
+  padding-top: 56px;
+}
+
+.mock-annot-wrap--v2 .mock-annot-col--right {
+  padding-top: 72px;
+}
+
+.mock-annot-wrap--v2 .mock-annot-col--left .mock-annot + .mock-annot {
+  margin-top: 32px;
+}
+
 .mock-annot__dot {
   position: relative;
   width: 8px;

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Task 1: Intent-matched hero | pdf.net</title>
+  <title>Task 1: Intent-matched heroes | pdf.net</title>
   <link rel="icon" href="../fav.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,18 +15,20 @@
   <nav class="site-nav" aria-label="Site">
     <div class="site-nav__track">
       <ul class="site-nav__links">
-        <li><a href="../">Home</a></li>
+        <li><a href="../">Variant 1</a></li>
+        <li><a href="../task1_2/">Variant 2</a></li>
         <li><a href="./" aria-current="page">Task 1</a></li>
         <li><a href="../task2/">Task 2</a></li>
+        <li><a href="../task3/">Task 3</a></li>
       </ul>
     </div>
   </nav>
 
   <main class="task1">
     <div class="task1-prose">
-      <h1 class="task1__title">Intent-matched hero for contract signing</h1>
+      <h1 class="task1__title">Intent-matched heroes for contract signing</h1>
       <p class="task1__lead">
-        New users land on pdf.net from different sources with different jobs. Pick one intent, then design an above-the-fold hero that speaks to that job, not a generic "PDF editor".
+        New users land on pdf.net from different sources with different jobs. I picked signing contracts as one intent, then designed two above-the-fold heroes that speak to that job, not a generic "PDF editor".
       </p>
     </div>
 
@@ -43,16 +45,20 @@
     <!-- Proposed hero -->
     <section class="task1__section">
       <div class="task1-prose">
-        <h2 class="task1__section-title">Proposed hero: sign contracts</h2>
+        <h2 class="task1__section-title">Proposed heroes: sign contracts</h2>
         <p>
-          Mirror the visitor's language and outcome. Headline names the job. Subtitle promises speed. CTA says "sign". The visual shows a signature being placed, so they see the end state before uploading.
+          Two layout directions for the same signing intent. Shared across both: job-specific headline, outcome-focused subtitle, "Choose PDF to sign" CTA, privacy line, and an animated preview of signing, not an empty upload box.
+        </p>
+        <p>
+          <strong>Variant 1</strong> keeps a centered, editorial layout: copy on top, upload below, editor animation as the hero visual.<br>
+          <strong>Variant 2</strong> uses a horizontal split: copy, usage chip, and upload on the left; a card-stack signing animation on the right.
         </p>
       </div>
 
       <div class="task1-stage">
         <div class="task1-mockup-block task1-mockup-block--hero">
           <div class="task1-mockup__meta">
-            <p class="task1-mockup__caption">Proposed: signing-intent hero</p>
+            <p class="task1-mockup__caption">Variant 1: centered signing-intent hero</p>
             <label class="mock-annot-toggle">
               <input type="checkbox" id="hero-annotations-toggle" checked data-annot-target="hero-annot-wrap">
               <span class="mock-annot-toggle__track" aria-hidden="true"></span>
@@ -78,8 +84,9 @@
                     <div class="task1-hero-live-scaler">
                       <iframe
                         class="task1-hero-live"
+                        data-hero-variant="v1"
                         src="../?embed=hero"
-                        title="Signing-intent homepage hero"
+                        title="Variant 1 signing-intent homepage"
                         tabindex="-1"
                         scrolling="no"
                       ></iframe>
@@ -104,7 +111,69 @@
               </div>
             </div>
           </div>
-          <p class="task1-mockup__footnote">Live homepage above the fold. Animation runs in the embed. <a href="../">Open full page</a>.</p>
+          <p class="task1-mockup__footnote">Live Variant 1 above the fold. Animation runs in the embed. <a href="../">Open full page</a>.</p>
+        </div>
+
+        <div class="task1-mockup-block task1-mockup-block--hero">
+          <div class="task1-mockup__meta">
+            <p class="task1-mockup__caption">Variant 2: horizontal split hero</p>
+            <label class="mock-annot-toggle">
+              <input type="checkbox" id="hero-v2-annotations-toggle" checked data-annot-target="hero-v2-annot-wrap">
+              <span class="mock-annot-toggle__track" aria-hidden="true"></span>
+              <span class="mock-annot-toggle__label">Show change annotations</span>
+            </label>
+          </div>
+          <div class="task1-mockup task1-mockup--annot">
+            <div class="mock-annot-wrap mock-annot-wrap--on mock-annot-wrap--v2" id="hero-v2-annot-wrap">
+              <div class="mock-annot-stage mock-annot-stage--hero">
+                <aside class="mock-annot-col mock-annot-col--left" aria-label="Change annotations">
+                  <div class="mock-annot mock-annot--chip">
+                    <span class="mock-annot__dot" aria-hidden="true"></span>
+                    <span class="mock-annot__text">Usage chip adds scale proof without leaning on review widgets</span>
+                  </div>
+                  <div class="mock-annot mock-annot--headline">
+                    <span class="mock-annot__dot" aria-hidden="true"></span>
+                    <span class="mock-annot__text">Two-line headline keeps the signing promise scannable on the left</span>
+                  </div>
+                  <div class="mock-annot mock-annot--subtitle">
+                    <span class="mock-annot__dot" aria-hidden="true"></span>
+                    <span class="mock-annot__text">Copy and upload sit together in the primary column, not below a tall visual</span>
+                  </div>
+                </aside>
+
+                <div class="task1-mockup__screen task1-mockup__screen--live">
+                  <div class="task1-hero-live-wrap">
+                    <div class="task1-hero-live-scaler">
+                      <iframe
+                        class="task1-hero-live"
+                        data-hero-variant="v2"
+                        src="../task1_2/?embed=hero"
+                        title="Variant 2 horizontal split homepage"
+                        tabindex="-1"
+                        scrolling="no"
+                      ></iframe>
+                    </div>
+                  </div>
+                </div>
+
+                <aside class="mock-annot-col mock-annot-col--right" aria-label="Change annotations">
+                  <div class="mock-annot mock-annot--visual">
+                    <span class="mock-annot__dot" aria-hidden="true"></span>
+                    <span class="mock-annot__text">Right column is reserved for outcome: signed documents cycling in a card stack</span>
+                  </div>
+                  <div class="mock-annot mock-annot--cta">
+                    <span class="mock-annot__dot" aria-hidden="true"></span>
+                    <span class="mock-annot__text">Same job-specific CTA, left-aligned under the copy block</span>
+                  </div>
+                  <div class="mock-annot mock-annot--privacy">
+                    <span class="mock-annot__dot" aria-hidden="true"></span>
+                    <span class="mock-annot__text">Horizontal layout leaves room for trust + action without pushing the fold down</span>
+                  </div>
+                </aside>
+              </div>
+            </div>
+          </div>
+          <p class="task1-mockup__footnote">Live Variant 2 above the fold. Animation runs in the embed. <a href="../task1_2/">Open full page</a>.</p>
         </div>
       </div>
 
@@ -114,11 +183,13 @@
     <section class="task1__section">
       <div class="task1-prose">
         <h2 class="task1__section-title">Design principles applied</h2>
+        <p>Both variants follow the same intent-matching rules. They differ in layout and how trust and outcome are shown.</p>
         <ul>
-          <li><strong>Reduce hero noise:</strong> stripped secondary UI and competing CTAs so the signing message and one job-specific action ("Choose PDF to sign") stay in focus</li>
-          <li><strong>Speak their words:</strong> headline uses "sign" and "contracts", the language from the blog post and search query</li>
-          <li><strong>Show the outcome:</strong> animated hero demonstrates signing, not an empty upload box</li>
-          <li><strong>Reduce risk:</strong> "Files stay private" eases contract-signing anxiety</li>
+          <li><strong>Reduce hero noise:</strong> one job-specific action ("Choose PDF to sign") and no competing tool grid above the fold in either layout</li>
+          <li><strong>Speak their words:</strong> headlines use "sign" and "contracts", matching language from the blog post and search query. Variant 2 tightens this into a two-line headline with a clearer speed promise</li>
+          <li><strong>Show the outcome:</strong> Variant 1 animates a signature inside a mini editor; Variant 2 cycles signed documents in a card stack. Both show the end state before upload</li>
+          <li><strong>Reduce risk:</strong> "Files stay private" on both. Variant 2 adds a usage chip ("10M+ docs, 500k users/mo") for scale proof without review widgets</li>
+          <li><strong>Fit layout to scanning:</strong> Variant 1 is centered and works when the visitor reads top-down; Variant 2 puts action on the left and outcome on the right for faster left-to-right scanning</li>
         </ul>
       </div>
     </section>
@@ -127,7 +198,8 @@
     <section class="task1__section">
       <div class="task1-prose">
         <h2 class="task1__section-title">How to measure success</h2>
-        <p><strong>Primary metric:</strong> landing → file uploaded (hero CTA or dropzone)</p>
+        <p><strong>Primary metric:</strong> landing → file uploaded (hero CTA or dropzone). Same for both variants.</p>
+        <p><strong>Test design:</strong> A/B Variant 1 vs Variant 2 on signing-intent traffic (blog post, <code>/sign-contract</code>, or paid keywords around "sign PDF"). Hold copy intent constant; isolate layout and visual treatment.</p>
         <table class="task1-metrics">
           <thead>
             <tr>
@@ -138,28 +210,32 @@
           <tbody>
             <tr>
               <td><code>landing_view → file_uploaded</code></td>
-              <td>Does intent-matched copy lift activation vs generic hero?</td>
+              <td>Which layout converts better: centered editor (Variant 1) vs split + card stack (Variant 2)?</td>
             </tr>
             <tr>
               <td><code>landing_view → bounce</code></td>
-              <td>Do signing visitors leave faster when message matches?</td>
+              <td>Does one layout lose signing visitors faster?</td>
             </tr>
             <tr>
               <td><code>hero_cta_click → editor_opened</code></td>
-              <td>CTA clarity: clicks that actually start the tool</td>
+              <td>CTA clarity in both layouts: clicks that actually start the tool</td>
             </tr>
             <tr>
               <td><code>uploaded → first_sign_action</code></td>
-              <td>Visitors who came to sign actually sign (intent quality)</td>
+              <td>Intent quality: do visitors who came to sign actually sign?</td>
             </tr>
             <tr>
               <td>Time to first upload</td>
-              <td>Outcome-focused copy should reduce hesitation</td>
+              <td>Whether Variant 2's left-column action layout reduces hesitation vs Variant 1's stacked layout</td>
+            </tr>
+            <tr>
+              <td>Scroll past hero (Variant 2 only)</td>
+              <td>Whether the split layout keeps upload visible without scrolling on common viewports</td>
             </tr>
           </tbody>
         </table>
         <p>
-          Run as a dedicated landing page (<code>/sign-contract</code>) or A/B on blog traffic. Segment by referrer: blog post vs organic vs paid. Min ~500 sessions per variant before reading conversion.
+          Segment by referrer: blog post vs organic vs paid. Min ~500 sessions per variant before reading conversion. If Variant 2 wins on upload, validate whether the usage chip or the split layout drove the lift. Optional follow-up test with chip removed.
         </p>
       </div>
     </section>
@@ -167,31 +243,36 @@
 
   <script>
     (function () {
-      var iframe = document.querySelector('.task1-hero-live');
-      var liveWrap = document.querySelector('.task1-hero-live-wrap');
-      var scaler = document.querySelector('.task1-hero-live-scaler');
       var DESIGN_WIDTH = 1440;
 
-      function measureEmbedHeight(doc) {
-        var selectors = '.header, .hero, [data-flow-editor], .hero-flow__upload, .hero-flow__privacy';
+      var EMBED_SELECTORS = {
+        v1: '.header, .hero, [data-flow-editor], .hero-flow__upload, .hero-flow__privacy',
+        v2: '.header, .hero-b, .hero-b__chip, .hero-b__dropzone, .hero-b__privacy',
+      };
+
+      function measureEmbedHeight(doc, variant) {
+        var selectorList = EMBED_SELECTORS[variant] || EMBED_SELECTORS.v1;
         var maxBottom = 0;
 
-        doc.querySelectorAll(selectors).forEach(function (node) {
+        doc.querySelectorAll(selectorList).forEach(function (node) {
           maxBottom = Math.max(maxBottom, node.getBoundingClientRect().bottom);
         });
 
-        var scrollHeight = doc.documentElement.scrollHeight;
-        return Math.ceil(Math.max(maxBottom + 12, scrollHeight));
+        return Math.ceil(Math.max(maxBottom + 12, doc.documentElement.scrollHeight));
       }
 
-      function syncHeroEmbed() {
-        if (!iframe || !liveWrap || !scaler) return;
+      function syncHeroEmbed(iframe) {
+        var liveWrap = iframe.closest('.task1-hero-live-wrap');
+        var scaler = liveWrap && liveWrap.querySelector('.task1-hero-live-scaler');
+        if (!liveWrap || !scaler) return;
+
+        var variant = iframe.dataset.heroVariant || 'v1';
 
         try {
           var doc = iframe.contentDocument;
           if (!doc || !doc.body) return;
 
-          var height = measureEmbedHeight(doc);
+          var height = measureEmbedHeight(doc, variant);
           var containerWidth = liveWrap.getBoundingClientRect().width;
           if (!containerWidth) return;
 
@@ -206,34 +287,40 @@
         } catch (e) {}
       }
 
+      function syncAllHeroEmbeds() {
+        document.querySelectorAll('.task1-hero-live').forEach(syncHeroEmbed);
+      }
+
       document.querySelectorAll('.mock-annot-toggle input[data-annot-target]').forEach(function (toggle) {
         var wrap = document.getElementById(toggle.getAttribute('data-annot-target'));
         if (!wrap) return;
 
         function sync() {
           wrap.classList.toggle('mock-annot-wrap--on', toggle.checked);
-          window.requestAnimationFrame(syncHeroEmbed);
-          window.setTimeout(syncHeroEmbed, 80);
+          window.requestAnimationFrame(syncAllHeroEmbeds);
+          window.setTimeout(syncAllHeroEmbeds, 80);
         }
 
         toggle.addEventListener('change', sync);
         sync();
       });
 
-      if (iframe) {
+      document.querySelectorAll('.task1-hero-live').forEach(function (iframe) {
         iframe.addEventListener('load', function () {
-          syncHeroEmbed();
-          window.setTimeout(syncHeroEmbed, 100);
-          window.setTimeout(syncHeroEmbed, 400);
-          window.setTimeout(syncHeroEmbed, 1000);
+          syncHeroEmbed(iframe);
+          window.setTimeout(function () { syncHeroEmbed(iframe); }, 100);
+          window.setTimeout(function () { syncHeroEmbed(iframe); }, 400);
+          window.setTimeout(function () { syncHeroEmbed(iframe); }, 1000);
         });
-      }
+      });
 
-      if (liveWrap && window.ResizeObserver) {
-        new ResizeObserver(syncHeroEmbed).observe(liveWrap);
-      }
+      document.querySelectorAll('.task1-hero-live-wrap').forEach(function (liveWrap) {
+        if (window.ResizeObserver) {
+          new ResizeObserver(syncAllHeroEmbeds).observe(liveWrap);
+        }
+      });
 
-      window.addEventListener('resize', syncHeroEmbed);
+      window.addEventListener('resize', syncAllHeroEmbeds);
     })();
   </script>
 </body>

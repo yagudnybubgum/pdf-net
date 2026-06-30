@@ -1,0 +1,797 @@
+/* Task 3 — onboarding audit page */
+
+body:has(.task3) {
+  background: #fff;
+}
+
+.task3 {
+  --t3-prose-width: 42rem;
+  --t3-stage-width: 1080px;
+  --t3-space-2xs: 10px;
+  --t3-space-xs: 14px;
+  --t3-space-sm: 20px;
+  --t3-space-md: 28px;
+  --t3-space-lg: 40px;
+  --t3-space-xl: 56px;
+  --t3-space-2xl: 72px;
+
+  max-width: var(--t3-stage-width);
+  margin: 0 auto;
+  padding: 32px 24px 96px;
+  overflow-x: visible;
+}
+
+.task3-prose {
+  max-width: var(--t3-prose-width);
+  margin-inline: auto;
+  width: 100%;
+}
+
+.task3-stage {
+  width: 100%;
+  max-width: 100%;
+}
+
+.task3-prose + .task3-stage,
+.task3-stage + .task3-prose {
+  margin-top: var(--t3-space-xl);
+}
+
+.task3-stage .task3-mockup-block:first-child {
+  margin-top: 0;
+}
+
+.task3__title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 400;
+  line-height: 1.15;
+  margin-bottom: var(--t3-space-sm);
+}
+
+.task3__lead {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  margin-bottom: var(--t3-space-xl);
+}
+
+.task3__section {
+  margin-bottom: var(--t3-space-2xl);
+}
+
+.task3__section-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  background: #4F4CF0;
+  border-radius: 50%;
+  margin-bottom: var(--t3-space-xs);
+}
+
+.task3__section-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: var(--t3-space-md);
+}
+
+.task3-prose p,
+.task3-prose li {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--color-text);
+}
+
+.task3-prose p + p {
+  margin-top: var(--t3-space-sm);
+}
+
+.task3-prose ul + p,
+.task3-prose p + ul {
+  margin-top: var(--t3-space-md);
+}
+
+.task3-prose table + p {
+  margin-top: var(--t3-space-md);
+}
+
+.task3-prose ul {
+  margin-top: var(--t3-space-sm);
+  padding-left: 20px;
+  list-style: disc;
+}
+
+.task3-prose li + li {
+  margin-top: var(--t3-space-2xs);
+}
+
+.task3-prose li strong {
+  font-weight: 600;
+}
+
+.task3__callout {
+  margin-top: var(--t3-space-md);
+  padding: 16px 20px;
+  background: #f7f7f5;
+  border-left: 3px solid #4F4CF0;
+  border-radius: 0 8px 8px 0;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.task3__callout--muted {
+  background: #fafafa;
+  border-left-color: #d1d5db;
+  color: var(--color-text-muted);
+}
+
+.task3-mockup-block {
+  margin-top: var(--t3-space-lg);
+}
+
+.task3-mockup-block + .task3-mockup-block {
+  margin-top: var(--t3-space-xl);
+}
+
+.task3-mockup__caption {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin-bottom: var(--t3-space-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.task3-mockup__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: var(--t3-space-xs);
+}
+
+.task3-mockup__meta .task3-mockup__caption {
+  margin-bottom: 0;
+}
+
+.task3-mockup {
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.task3-mockup--annot {
+  border: none;
+  background: transparent;
+  overflow: visible;
+}
+
+.task3-mockup__footnote {
+  margin-top: var(--t3-space-xs);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+/* Funnel */
+
+.task3-funnel {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: var(--t3-space-md);
+  padding: 16px 20px;
+  background: #f7f7f5;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.task3__section > .task3-funnel,
+.task3-prose > .task3-funnel {
+  max-width: 100%;
+}
+
+.task3-funnel__step {
+  padding: 6px 12px;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.task3-funnel__step--weak {
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: #b91c1c;
+}
+
+.task3-funnel__step--current {
+  background: #eef2ff;
+  border-color: #c7d2fe;
+  color: #4338ca;
+}
+
+.task3-funnel__step--skipped {
+  text-decoration: line-through;
+  opacity: 0.45;
+}
+
+.task3-funnel__arrow {
+  color: #9ca3af;
+}
+
+.task3-funnel__arrow--muted {
+  opacity: 0.35;
+}
+
+.task3-funnel-label {
+  margin-top: var(--t3-space-md);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Screenshot grid */
+
+.task3-screens {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.task3-screen {
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.task3-screen--wide {
+  grid-column: 1 / -1;
+}
+
+.task3-screen__img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.task3-screen__label {
+  padding: 10px 14px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+  background: #fafafa;
+}
+
+.task3-screen__label strong {
+  display: block;
+  color: var(--color-text);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+/* Issue list */
+
+.task3-issues {
+  margin-top: var(--t3-space-md);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.task3-issues__row {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 16px;
+  padding: 14px 18px;
+  font-size: 14px;
+  line-height: 1.5;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.task3-issues__row:last-child {
+  border-bottom: none;
+}
+
+.task3-issues__row:nth-child(odd) {
+  background: #fafafa;
+}
+
+.task3-issues__step {
+  font-weight: 600;
+}
+
+.task3-issues__problem {
+  color: var(--color-text-muted);
+}
+
+.task3-issues__problem em {
+  font-style: normal;
+  color: #b91c1c;
+  font-weight: 500;
+}
+
+/* Metrics */
+
+.task3-metrics {
+  width: 100%;
+  margin-top: var(--t3-space-md);
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.task3-prose .task3-metrics {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.task3-metrics th,
+.task3-metrics td {
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.task3-metrics th {
+  font-weight: 600;
+  background: #f1f1ef;
+}
+
+.task3-metrics td {
+  color: var(--color-text-muted);
+}
+
+/* Annotation toggle (shared pattern) */
+
+.mock-annot-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.mock-annot-toggle input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.mock-annot-toggle__track {
+  position: relative;
+  width: 40px;
+  height: 22px;
+  background: #d1d5db;
+  border-radius: 999px;
+  transition: background 0.2s ease;
+}
+
+.mock-annot-toggle__track::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+}
+
+.mock-annot-toggle input:checked + .mock-annot-toggle__track {
+  background: #9ca3af;
+}
+
+.mock-annot-toggle input:checked + .mock-annot-toggle__track::after {
+  transform: translateX(18px);
+}
+
+.mock-annot-toggle__label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #9ca3af;
+}
+
+.mock-annot-wrap {
+  overflow: visible;
+}
+
+.mock-annot-stage--sign {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+}
+
+.mock-annot-wrap--on .mock-annot-stage--sign {
+  grid-template-columns: 168px minmax(0, 1fr) 168px;
+  gap: 20px;
+  width: calc(100% + 376px);
+  margin-left: -188px;
+}
+
+.mock-annot-col {
+  display: none;
+}
+
+.mock-annot-wrap--on .mock-annot-col {
+  display: block;
+}
+
+.mock-annot-col--left {
+  padding-top: 72px;
+}
+
+.mock-annot-col--right {
+  padding-top: 48px;
+}
+
+.mock-annot {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+  line-height: 1.45;
+  font-weight: 500;
+  color: #9ca3af;
+}
+
+.mock-annot-col--left .mock-annot {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.mock-annot-col--left .mock-annot + .mock-annot {
+  margin-top: 32px;
+}
+
+.mock-annot-col--right .mock-annot + .mock-annot {
+  margin-top: 20px;
+}
+
+.mock-annot__dot {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #9ca3af;
+  flex-shrink: 0;
+  margin-top: 4px;
+  box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.2);
+}
+
+.mock-annot-col--left .mock-annot__dot::after {
+  content: "";
+  position: absolute;
+  left: calc(100% + 4px);
+  top: 50%;
+  width: 20px;
+  height: 1px;
+  background: #d1d5db;
+}
+
+.mock-annot-col--right .mock-annot__dot::before {
+  content: "";
+  position: absolute;
+  right: calc(100% + 4px);
+  top: 50%;
+  width: 20px;
+  height: 1px;
+  background: #d1d5db;
+}
+
+/* Proposed sign-mode mockup */
+
+.sign-editor {
+  font-family: var(--font-sans);
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.sign-editor__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 20px;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.sign-editor__brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.sign-editor__brand img {
+  height: 24px;
+  width: auto;
+}
+
+.sign-editor__filename {
+  font-size: 13px;
+  font-weight: 500;
+  color: #6b7280;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sign-editor__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.sign-editor__download {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  background: #4F4CF0;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 0 0 3px rgba(79, 76, 240, 0.25);
+}
+
+.sign-editor__download svg {
+  width: 16px;
+  height: 16px;
+}
+
+.sign-editor__toolbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.sign-editor__tool {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #6b7280;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+}
+
+.sign-editor__tool--active {
+  color: #4F4CF0;
+  background: #eef2ff;
+  border-color: #c7d2fe;
+}
+
+.sign-editor__tool--muted {
+  opacity: 0.45;
+}
+
+.sign-editor__more {
+  margin-left: auto;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.sign-editor__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  min-height: 420px;
+}
+
+.sign-editor__canvas-wrap {
+  position: relative;
+  padding: 24px;
+}
+
+.sign-editor__page {
+  position: relative;
+  max-width: 360px;
+  margin: 0 auto;
+  aspect-ratio: 3 / 4;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.sign-editor__page-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.92;
+}
+
+.sign-editor__signature {
+  position: absolute;
+  left: 18%;
+  bottom: 22%;
+  font-family: "Young Serif", Georgia, serif;
+  font-size: 28px;
+  font-style: italic;
+  color: #2563eb;
+  transform: rotate(-4deg);
+}
+
+.sign-editor__place-hint {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.sign-editor__place-hint span {
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #4338ca;
+  background: rgba(238, 242, 255, 0.95);
+  border: 1px dashed #a5b4fc;
+  border-radius: 8px;
+}
+
+.sign-editor__panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  background: #fff;
+  border-left: 1px solid #e5e7eb;
+}
+
+.sign-editor__panel-title {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.sign-editor__field-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: #6b7280;
+  margin-bottom: 6px;
+}
+
+.sign-editor__input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+}
+
+.sign-editor__preview {
+  padding: 16px 12px;
+  text-align: center;
+  font-family: "Young Serif", Georgia, serif;
+  font-size: 26px;
+  font-style: italic;
+  color: #2563eb;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+.sign-editor__styles {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.sign-editor__styles a {
+  color: #4F4CF0;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.sign-editor__cta {
+  margin-top: auto;
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  background: #4F4CF0;
+  border: none;
+  border-radius: 8px;
+}
+
+.sign-editor__coach {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  max-width: 220px;
+  padding: 12px 14px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: #fff;
+  background: #1f2937;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.sign-editor__coach::after {
+  content: "";
+  position: absolute;
+  top: 18px;
+  right: -6px;
+  width: 12px;
+  height: 12px;
+  background: #1f2937;
+  transform: rotate(45deg);
+}
+
+.sign-editor__coach-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.sign-editor__coach-btn {
+  margin-top: 10px;
+  padding: 6px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+  background: #4F4CF0;
+  border: none;
+  border-radius: 6px;
+}
+
+@media (max-width: 1200px) {
+  .mock-annot-wrap--on .mock-annot-stage--sign {
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .mock-annot-wrap--on .mock-annot-col {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .task3-screens {
+    grid-template-columns: 1fr;
+  }
+
+  .task3-issues__row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .sign-editor__body {
+    grid-template-columns: 1fr;
+  }
+
+  .sign-editor__panel {
+    border-left: none;
+    border-top: 1px solid #e5e7eb;
+  }
+}

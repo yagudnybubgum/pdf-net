@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 1.2: Hero variant B | pdf.net</title>
+  <link rel="icon" href="../fav.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Young+Serif&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/task1_2.css">
+  <script>document.documentElement.classList.toggle('embed-hero', new URLSearchParams(location.search).has('embed'));</script>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Site">
+    <div class="site-nav__track">
+      <ul class="site-nav__links">
+        <li><a href="../">Variant 1</a></li>
+        <li><a href="./" aria-current="page">Variant 2</a></li>
+        <li><a href="../task1/">Task 1</a></li>
+        <li><a href="../task2/">Task 2</a></li>
+        <li><a href="../task3/">Task 3</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="../" class="header__logo" aria-label="pdf.net home">
+        <img src="../assets/logo.svg" alt="pdf.net" width="120" height="32">
+      </a>
+
+      <nav class="header__nav" aria-label="Main navigation">
+        <ul class="header__links">
+          <li><a href="#">Edit text</a></li>
+          <li><a href="#">Merge</a></li>
+          <li><a href="#">Split</a></li>
+          <li><a href="#">Sign</a></li>
+          <li><a href="#">Annotate</a></li>
+          <li><a href="#">Rearrange pages</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <a href="#" class="header__login">Login</a>
+        <a href="#" class="header__cta">Get started</a>
+      </div>
+
+      <div class="header__mobile-actions">
+        <button type="button" class="header__burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg class="icon icon--burger" aria-hidden="true"><use href="#bars-3"></use></svg>
+          <svg class="icon icon--close" aria-hidden="true"><use href="#x-mark"></use></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <nav aria-label="Mobile navigation">
+        <ul class="mobile-menu__links">
+          <li><a href="#">Edit text</a></li>
+          <li><a href="#">Merge</a></li>
+          <li><a href="#">Split</a></li>
+          <li><a href="#">Sign</a></li>
+          <li><a href="#">Annotate</a></li>
+          <li><a href="#">Rearrange pages</a></li>
+        </ul>
+        <div class="mobile-menu__footer">
+          <a href="#" class="header__login">Login</a>
+          <a href="#" class="header__cta header__cta--full">Get started</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-b" aria-label="Sign PDF contracts">
+      <div class="hero-b__inner">
+        <!-- Left: copy + input -->
+        <div class="hero-b__copy">
+          <p class="hero-b__chip">10M+ docs, 500k users/mo</p>
+          <h1 class="hero-b__title">
+            <span class="hero-b__title-line">Sign PDF contracts</span>
+            <span class="hero-b__title-line">in minutes, not days.</span>
+          </h1>
+          <p class="hero-b__subtitle">
+            Upload from your browser, add your signature, and send the signed PDF back. No printer, no account to start.
+          </p>
+
+          <div class="hero-b__input">
+            <input type="file" id="hero-b-file-input" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" multiple hidden>
+            <div class="hero-b__dropzone" id="hero-b-dropzone">
+              <div class="hero-b__dropzone-row">
+                <div class="hero-b__dropzone-icon" aria-hidden="true">
+                  <svg class="icon" width="22" height="22"><use href="#cloud-arrow-up"></use></svg>
+                </div>
+                <div class="hero-b__dropzone-text">
+                  <p class="hero-b__dropzone-title" data-hero-b-upload-title>Drop your PDF here</p>
+                  <p class="hero-b__dropzone-hint">PDF, DOC, DOCX, JPG, PNG</p>
+                </div>
+              </div>
+              <button type="button" class="hero-b__btn" id="hero-b-choose">Choose PDF to sign</button>
+              <p class="hero-b__privacy">
+                <svg class="icon icon--sm" aria-hidden="true"><use href="#lock-closed"></use></svg>
+                Files stay private
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: isometric document stack -->
+        <div class="hero-b__visual" aria-hidden="true">
+          <div class="hero-b__stack-stage">
+            <div class="hero-b__stack" data-hero-b-stack>
+              <article class="hero-b__card hero-b__card--coral" data-hero-b-card>
+                <div class="hero-b__card-face">
+                  <span class="hero-b__card-line hero-b__card-line--wide"></span>
+                  <span class="hero-b__card-line"></span>
+                  <span class="hero-b__card-line hero-b__card-line--short"></span>
+                  <svg class="hero-b__card-signature" viewBox="0 0 96 28" aria-hidden="true">
+                    <path data-hero-b-card-signature d="M 2 20 C 2 11, 10 5, 18 11 C 24 16, 21 22, 14 20 C 9 18, 11 12, 20 9 C 30 6, 38 10, 40 17 C 42 24, 36 23, 32 18 C 28 13, 34 8, 44 9 C 54 10, 60 16, 62 14 C 66 10, 72 12, 76 18 C 80 24, 74 25, 70 20 L 74 20 C 80 14, 88 13, 92 18 C 95 22, 91 24, 87 21" pathLength="100"/>
+                  </svg>
+                </div>
+              </article>
+              <article class="hero-b__card hero-b__card--blue" data-hero-b-card>
+                <div class="hero-b__card-face">
+                  <span class="hero-b__card-line hero-b__card-line--wide"></span>
+                  <span class="hero-b__card-line"></span>
+                  <span class="hero-b__card-line hero-b__card-line--short"></span>
+                  <svg class="hero-b__card-signature" viewBox="0 0 96 28" aria-hidden="true">
+                    <path data-hero-b-card-signature d="M 4 18 C 4 10, 14 8, 18 14 C 22 20, 14 22, 10 18 C 8 16, 12 11, 22 10 C 34 8, 44 13, 48 17 C 52 21, 46 23, 40 19 C 46 17, 52 12, 54 11 C 60 8, 68 10, 70 15 C 72 20, 66 22, 61 19 C 54 22, 46 23, 42 24 L 90 24" pathLength="100"/>
+                  </svg>
+                </div>
+              </article>
+              <article class="hero-b__card hero-b__card--green" data-hero-b-card>
+                <div class="hero-b__card-face">
+                  <span class="hero-b__card-line hero-b__card-line--wide"></span>
+                  <span class="hero-b__card-line"></span>
+                  <span class="hero-b__card-line hero-b__card-line--short"></span>
+                  <svg class="hero-b__card-signature" viewBox="0 0 96 28" aria-hidden="true">
+                    <path data-hero-b-card-signature d="M 6 22 L 6 11 C 6 11, 16 9, 20 14 C 24 19, 18 21, 14 19 L 28 22 L 28 13 L 40 22 L 28 17 L 38 17 L 46 20 C 54 16, 66 14, 78 11 C 86 9, 92 14, 93 19" pathLength="100"/>
+                  </svg>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="logos-section" aria-label="Trusted by industry leaders">
+      <div class="logos-section__inner">
+        <h2 class="logos-section__title">PDF editor used by industry leaders</h2>
+        <div class="logos-section__cloud">
+          <img src="../assets/logos/Container.svg" alt="Apple" width="108" height="64" loading="lazy">
+          <img src="../assets/logos/Container-1.svg" alt="Google" width="98" height="64" loading="lazy">
+          <img src="../assets/logos/Container-2.svg" alt="Amazon" width="105" height="64" loading="lazy">
+          <img src="../assets/logos/Container-3.svg" alt="Microsoft" width="140" height="64" loading="lazy">
+          <img src="../assets/logos/Container-4.svg" alt="Oracle" width="104" height="64" loading="lazy">
+          <img src="../assets/logos/Container-5.svg" alt="Spotify" width="108" height="64" loading="lazy">
+          <img src="../assets/logos/Container-6.svg" alt="IBM" width="80" height="64" loading="lazy">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+    <symbol id="bars-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+    </symbol>
+    <symbol id="x-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/>
+    </symbol>
+    <symbol id="cloud-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0 3 3m-3-3-3 3M6.75 19.5a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.233-2.33 3 3 0 0 1 3.758 3.848A3.752 3.752 0 0 1 18 19.5H6.75Z"/>
+    </symbol>
+    <symbol id="lock-closed" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"/>
+    </symbol>
+    <symbol id="check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+    </symbol>
+  </svg>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="../js/task1_2.js"></script>
+</body>
+</html>
