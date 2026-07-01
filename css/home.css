@@ -34,6 +34,7 @@ body:has(.home) {
 .home__loom {
   font-size: 16px;
   line-height: 1.65;
+  margin-bottom: 56px;
 }
 
 .home__loom a {
