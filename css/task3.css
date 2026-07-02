@@ -648,10 +648,6 @@ body:has(.task3) {
 .sign-modal__swatch:nth-child(5) { background: #15803d; }
 .sign-modal__swatch:nth-child(6) { background: #7c3aed; }
 
-.sign-modal__swatch--gradient {
-  background: conic-gradient(from 180deg, #ff6b6b, #ffd93d, #6bcb77, #4d96ff, #a855f7, #ff6b6b);
-}
-
 .sign-modal__swatch--active {
   box-shadow: 0 0 0 2px #fff, 0 0 0 4px #4F4CF0;
 }
